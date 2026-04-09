@@ -1,3 +1,7 @@
+// Run in Terminal: node server.js
+// Into Browser: localhost:3000/api/characters/search?name=Spider-Man
+// Doesn't hurt to review breakdown
+
 require('dotenv').config(); // loads the .env file into process.env to get api key
 const express = require('express');
 const characterRoutes = require('./routes/characterRoutes');
