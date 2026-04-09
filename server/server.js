@@ -1,13 +1,14 @@
 // Run in Terminal: node server.js
 // Into Browser: localhost:3000/api/characters/search?name=Spider-Man
-// Doesn't hurt to review breakdown
 
 require('dotenv').config(); // loads the .env file into process.env to get api key
 const express = require('express');
 const characterRoutes = require('./routes/characterRoutes');
+const connectToDatabase = require('./config/db')
 
 const app = express(); // creates an express instance object
 app.use('/api/characters', characterRoutes); // tell app to use this relative path to the right route 
+connectToDatabase();
 
 // app listens from a 3000 port, a numbered channel
 // () is a callback function that runs once the server successfully starts  
