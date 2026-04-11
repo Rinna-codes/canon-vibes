@@ -13,7 +13,7 @@ const cardSchema = new mongoose.Schema({
     fanficNotes: {type: String, required: true},
     mediaPoster: {type: String, required:true},
     personalReview: {type: String, required:true},
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // stores ID that looks at a document in among users
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // stores ID that looks at a document among users
     characterVersion: {type: String, required:true}
 });
 

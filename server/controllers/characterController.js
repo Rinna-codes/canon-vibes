@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+// Logical function that collects information from API call for the character searched for 
 const searchCharacters = async (req, res) => {
     // Logic below in plain English
     // 1) Get the search term from the query string on thr req -> req.query

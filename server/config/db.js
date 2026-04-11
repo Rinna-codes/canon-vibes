@@ -1,4 +1,4 @@
-// only for establishing connection with the MongoDB
+// only for establishing a connection with the MongoDB database with 
 
 const mongoResponse = require('mongoose'); // brings in mongoose 
 
