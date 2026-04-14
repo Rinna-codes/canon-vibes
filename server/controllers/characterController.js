@@ -14,8 +14,8 @@ const searchCharacters = async (req, res) => {
 
         const response = await axios.get(URL); // makes the HTTP request 
         res.json(response.data.results); // sends back the data as a response
-    } catch (error) {
-        console.log(err); // displays the exact error that is caught 
+    } catch (err) {
+        console.error(err); // displays the exact error that is caught 
         res.status(500).json({message:"Whoops! Something went wrong with the server 😱"});
     };
 };
