@@ -1,4 +1,4 @@
-// has the functions for the registering and login logic 
+// has the functions for the registering and login logic (authentication)
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -56,7 +56,8 @@ const loginUser = async (req, res) => {
             {expiresIn: '7d' }
         )
 
-        res.status(200).json({token})
+        res.status(200).json({token}); // returns the web token for successful token to user access
+
     } catch (err) {
         console.error(err); // displays the exact error that is caught 
         res.status(500).json({message:"Whoops! Something went wrong with the logging in 😱"});

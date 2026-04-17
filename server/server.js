@@ -8,8 +8,13 @@ const authenticateUsers = require('./routes/authRoutes');
 const connectToDatabase = require('./config/db')
 
 const app = express(); // creates an express instance object
+
+// apply the json middleware for express to understand the request body from user 
+app.use(express.json());
+
 app.use('/api/characters', characterRoutes); // tell app to use this relative path to the router file
 app.use('/api/auth', authenticateUsers); // tell app to use this relative path to the authenticate file 
+
 connectToDatabase();
 
 // app listens from a 3000 port, a numbered channel
