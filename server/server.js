@@ -4,10 +4,12 @@
 require('dotenv').config(); // loads the .env file into process.env to get api key
 const express = require('express');
 const characterRoutes = require('./routes/characterRoutes');
+const authenticateUsers = require('./routes/authRoutes');
 const connectToDatabase = require('./config/db')
 
 const app = express(); // creates an express instance object
-app.use('/api/characters', characterRoutes); // tell app to use this relative path to the right route 
+app.use('/api/characters', characterRoutes); // tell app to use this relative path to the router file
+app.use('/api/auth', authenticateUsers); // tell app to use this relative path to the authenticate file 
 connectToDatabase();
 
 // app listens from a 3000 port, a numbered channel
