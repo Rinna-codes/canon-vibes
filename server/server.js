@@ -5,6 +5,7 @@ require('dotenv').config(); // loads the .env file into process.env to get api k
 const express = require('express');
 const characterRoutes = require('./routes/characterRoutes');
 const authenticateUsers = require('./routes/authRoutes');
+const cardRoutes = require('./routes/cardRoutes');
 const connectToDatabase = require('./config/db')
 
 const app = express(); // creates an express instance object
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/api/characters', characterRoutes); // tell app to use this relative path to the router file
 app.use('/api/auth', authenticateUsers); // tell app to use this relative path to the authenticate file 
+app.use('/api/cards', cardRoutes); // tell app to use this relative path to the card file 
 
 connectToDatabase();
 
