@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import CardPreview from '../components/CardPreview'; // import the CardPreview function
 
 const DashboardPage = () => {
   // create a state variable with a empty array 
@@ -31,7 +32,7 @@ const DashboardPage = () => {
     <div>
         <h1>Dashboard Page</h1>
         {cards.map(card => (
-            <p key={card._id}>{card.superheroName}</p> // only displasy superhero name of soundtrack card
+            <CardPreview key={card._id} card={card} /> // passes entire card object through prop to display image and name
         ))}
     </div>
   );
