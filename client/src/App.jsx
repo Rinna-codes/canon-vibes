@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/Dashboard';
 import RegisterPage from './pages/RegisterPage';
 import SoundtrackCardPage from './pages/SoundtrackCardPage';
+import CreateCardPage from './pages/CreateCardPage';
 
 function App() {
   return(
@@ -27,6 +28,9 @@ function App() {
 
         {/* This makes the router to a users Soundtrack Card Page */}
         <Route path="/soundtrackCard" element={<SoundtrackCardPage />} />
+
+        {/* This makes the router to a users Create Card Page */}
+        <Route path="/cardCreation" element={<CreateCardPage />} />
 
       </Routes>
     </BrowserRouter>

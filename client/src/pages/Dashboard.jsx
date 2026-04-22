@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import CardPreview from '../components/CardPreview'; // import the CardPreview function
 
 const DashboardPage = () => {
-  // create a state variable with a empty array 
+    // create a state variable with a empty array 
     // fetch the cards relative path with useEffect with the token in the header
     // store response in card state variable 
     // temp: display the cards with only the superhero name 
@@ -26,7 +26,7 @@ const DashboardPage = () => {
     };
 
     fetchData();
-  }, []); // render once as dashboard page loads
+  }, []); // render only ONCE as dashboard page loads, because of the useEffect
 
   return (
     <div>
