@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { useNavigate} from 'react-router-dom';
 
+// TODO: Start working on creating the character search bar feature of the card creation form 
+
 function CreateCardForm() {
     const [formData, setFormData] = useState({
         superheroName: '',
