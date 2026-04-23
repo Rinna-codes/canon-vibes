@@ -59,7 +59,6 @@ function CreateCardForm() {
         }));
 
         setSearchResult([]);
-        console.log(formData);
     };
 
     const handleChange = (e) => { // genaric object handler for all fields
