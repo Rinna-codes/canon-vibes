@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate} from 'react-router-dom';
 
 // TODO: Start working on creating the character search bar feature of the card creation form 
+// TODO: Create handleSubmit function and wire it to the 'Create Card' button to function
 
 function CreateCardForm() {
     const [formData, setFormData] = useState({
@@ -55,7 +56,6 @@ function CreateCardForm() {
             characterRealName: character.real_name,
             comicVineID: character.id,
             characterImage: character.image.medium_url,
-            // TODO: update in adding the rest of the form fields 
         }));
 
         setSearchResult([]);
@@ -84,6 +84,38 @@ function CreateCardForm() {
                     <li key={character.id} onClick={() => handleSelectCharacter(character)}>{character.name}</li>
                 ))}
             </ul>
+
+            <input name="spotifyPlaylist"
+            value = {formData.spotifyPlaylist}
+            onChange={handleChange}
+            placeholder="Embedding Spotify Playlist Link"/>
+
+            <input name="characterVersion"
+            value = {formData.characterVersion}
+            onChange={handleChange}
+            placeholder="Version of Character"/>
+
+            <input name="characterQuote"
+            value = {formData.characterQuote}
+            onChange={handleChange}
+            placeholder = "Quote for Character"/>
+
+            <textarea name="fanficNotes"
+            value = {formData.fanficNotes}
+            onChange={handleChange}
+            placeholder = "Your Notes"/>
+
+            <input name="mediaPoster"
+            value = {formData.mediaPoster}
+            onChange={handleChange}
+            placeholder = "Poster"/>
+
+            <textarea name="personalReview"
+            value = {formData.personalReview}
+            onChange={handleChange}
+            placeholder = "Personal Review"/>
+
+            <button>Create Card</button>
         </div>
     );
 }
