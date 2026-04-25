@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigate} from 'react-router-dom';
 
-// TODO: Start working on creating the character search bar feature of the card creation form 
-// TODO: Create handleSubmit function and wire it to the 'Create Card' button to function
-
 function CreateCardForm() {
     const [formData, setFormData] = useState({
         superheroName: '',
@@ -62,6 +59,8 @@ function CreateCardForm() {
     };
     
     const handleSubmit = async (event) => {
+        // sends the formData to the fetch call endpoint with jwt token 
+        // redirect user to the dashboard page when creating a card is successful 
         event.preventDefault();
 
         try {
@@ -108,6 +107,12 @@ function CreateCardForm() {
                     <li key={character.id} onClick={() => handleSelectCharacter(character)}>{character.name}</li>
                 ))}
             </ul>
+
+            {formData.superheroName && (
+                <div>
+                    <h2> Character Selected: {formData.superheroName}</h2>
+                </div>
+            )}
 
             <input name="spotifyPlaylist"
             value = {formData.spotifyPlaylist}
