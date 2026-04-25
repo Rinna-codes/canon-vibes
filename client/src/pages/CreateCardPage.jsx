@@ -60,6 +60,30 @@ function CreateCardForm() {
 
         setSearchResult([]);
     };
+    
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await fetch('/api/cards', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to create card');
+            }
+
+            const data = await response.json();
+            navigate('/dashboard')
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const handleChange = (e) => { // genaric object handler for all fields
         const {name, value} = e.target; // follows "formData, setFormData"
@@ -115,7 +139,7 @@ function CreateCardForm() {
             onChange={handleChange}
             placeholder = "Personal Review"/>
 
-            <button>Create Card</button>
+            <button onClick={handleSubmit}>Create Card</button>
         </div>
     );
 }
