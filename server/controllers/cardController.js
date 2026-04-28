@@ -25,6 +25,36 @@ const createNewCard = async (req, res) => {
     }
 };
 
+// TODO: Need to test out if this actually works, need to use Thunder Client with correct token to test function below
+
+const deleteCard = async (req, res) => {
+    // verify the card's user before deletion through req.user.id
+    // get the card id that user wishes to delete by req.params.id
+    // call Card.findByIdAndDelete(id)
+    // send back a success as response 
+
+    try {
+        const cardID = req.params.id;
+        const userID = req.user.id; 
+        const card = await Card.findById(cardID); // identify the card user wishes to delete
+
+        if (!card) {
+            return res.status(404).json({message: "Cannot find the card you wish to delete!"});
+        }
+
+        if (card.user.toString() !== userID) { // verifies the user if the correct one to be able to delete a card
+            return res.status(403).json({message: "This is not your card to delete!"});
+        }
+
+        const deleteCard = await Card.findByIdAndDelete(cardID);
+        res.status(200).json({message: "Deletion of the card was successful"});
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message:"Whoops! Something went wrong with the deleting a card 😱"});
+    }
+}
+
 const collectAllCards = async (req, res) => {
     // 1) grab the user's ID 
     // 2) get all cards that match the user
@@ -42,4 +72,4 @@ const collectAllCards = async (req, res) => {
     }
 };
 
-module.exports = {createNewCard, collectAllCards};
+module.exports = {createNewCard, deleteCard, collectAllCards};
