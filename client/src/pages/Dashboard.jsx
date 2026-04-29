@@ -9,6 +9,7 @@ const DashboardPage = () => {
 
     // start state variable with an empty array 
     const [cards, setCards] = useState([]);
+    const [refresh, SetRefresh] = useState(0); // help the dashboard refetch cards after deleting a card
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,13 +27,13 @@ const DashboardPage = () => {
     };
 
     fetchData();
-  }, []); // render only ONCE as dashboard page loads, because of the useEffect
+  }, [refresh]); // refresh the page after any changes to the cards on dashboard
 
   return (
     <div>
         <h1>Dashboard Page</h1>
         {cards.map(card => (
-            <CardPreview key={card._id} card={card} /> // passes entire card object through prop to display image and name
+            <CardPreview key={card._id} card={card} onDelete={() => SetRefresh(prev => prev + 1)}/> // passes functions and card object as prop
         ))}
     </div>
   );
