@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 
 const LoginPage = () => {
     // 1) make two state variable with email and password 
@@ -54,6 +54,8 @@ const LoginPage = () => {
             placeholder='Password'
             />
             <button>Submit</button>
+
+            <Link to="/register">Don't have an account? Register here</Link>
         </form>
     );
 };
