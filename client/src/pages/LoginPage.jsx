@@ -31,6 +31,7 @@ const LoginPage = () => {
             // sent back the web token and saved into storage when login is sucessfull + navigate client to dashboard page
             const data = await response.json();
             localStorage.setItem('token', data.token);
+            localStorage.setItem('username', data.username); // get the username for the user for dashboard greeting
             navigate('/dashboard');
             
         } catch (error) {

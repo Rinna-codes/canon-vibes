@@ -56,7 +56,7 @@ const loginUser = async (req, res) => {
             {expiresIn: '7d' }
         )
 
-        res.status(200).json({token}); // returns the web token for successful token to user access
+        res.status(200).json({token, username: existingEmail.username}); // returns the web token for successful token to user access + username from the exisiting email
 
     } catch (err) {
         console.error(err); // displays the exact error that is caught 

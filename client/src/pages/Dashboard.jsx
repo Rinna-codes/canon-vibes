@@ -32,6 +32,7 @@ const DashboardPage = () => {
   return (
     <div>
         <h1>Dashboard Page</h1>
+        <h2>Welcome back, {localStorage.getItem('username')}</h2>
         {cards.map(card => (
             <CardPreview key={card._id} card={card} onDelete={() => SetRefresh(prev => prev + 1)}/> // passes functions and card object as prop
         ))}
