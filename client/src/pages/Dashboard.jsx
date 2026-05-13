@@ -46,8 +46,10 @@ const DashboardPage = () => {
         {cards.map(card => (
             <CardPreview key={card._id} card={card} onDelete={() => SetRefresh(prev => prev + 1)}/> // passes functions and card object as prop
         ))}
+
+        <p>You currently have {cards.length} Soundtrack Card(s)</p>
         {cards.length === 0 &&
-          <p>You universe is waiting. Create you First Soundtrack Card</p> }
+          <p>You universe is waiting. Create you First Soundtrack Card</p>}
 
         <button onClick={handleLogout}>Log Out</button>
     </div>
