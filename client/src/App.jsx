@@ -4,7 +4,7 @@
 // Routes — a container that holds all your route definitions
 // Route — defines one specific path and which component to show
 
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 
 // Need to import the pages into the app component
 import LoginPage from './pages/LoginPage';
@@ -17,8 +17,8 @@ function App() {
   return(
     <BrowserRouter>
       <Routes>
-        {/* This makes the router to the user Login Page */}
-        <Route path="/login" element={<LoginPage />} /> 
+        {/* This makes the router to the user Login Page + Render Deployment */}
+        <Route path="/" element={<Navigate to="/login" />} />
 
         {/* This makes the router to the users DashboardPage */}
         <Route path="/dashboard" element={<DashboardPage />} />
