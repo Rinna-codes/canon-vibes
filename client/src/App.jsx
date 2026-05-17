@@ -27,10 +27,10 @@ function App() {
         <Route path="/register" element={<RegisterPage/>} />
 
         {/* This makes the router to a users Soundtrack Card Page */}
-        <Route path="/soundtrackCard" element={<SoundtrackCardPage />} />
+        <Route path="/cards/:id" element={<SoundtrackCardPage />} />
 
         {/* This makes the router to a users Create Card Page */}
-        <Route path="/cardCreation" element={<CreateCardPage />} />
+        <Route path="/create" element={<CreateCardPage />} />
 
       </Routes>
     </BrowserRouter>

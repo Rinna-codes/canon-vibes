@@ -55,6 +55,26 @@ const deleteCard = async (req, res) => {
     }
 }
 
+const getCardById = async (req, res) => {
+    // 1) get the card by comic vine id
+    // 2) find the card using Card.findById
+    // 3) send bad as a response 
+
+    try {
+        const cardID = req.params.id;
+        const card = await Card.findById(cardID);
+
+        if (!card) {
+            return res.status(404).json({message: "Cannot find the card!"});
+        }
+
+        res.status(200).json({card});
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message:"Whoops! Unable to find card by id 😱"});
+    }
+}
+
 const collectAllCards = async (req, res) => {
     // 1) grab the user's ID 
     // 2) get all cards that match the user
@@ -72,4 +92,4 @@ const collectAllCards = async (req, res) => {
     }
 };
 
-module.exports = {createNewCard, deleteCard, collectAllCards};
+module.exports = {createNewCard, deleteCard, getCardById, collectAllCards};
