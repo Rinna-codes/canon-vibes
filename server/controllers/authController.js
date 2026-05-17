@@ -1,17 +1,17 @@
 // has the functions for the registering and login logic (authentication)
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt'); // helps for hashing passwords 
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 const registerUser = async (req, res) => {
     // check if the user already exist
-    // hash the password
+    // hashes the password
     // save the new user to the MongoDB
     // send a response back to client/user
 
     try {
-        const {username, email, password} = req.body;
+        const {username, email, password} = req.body; // get username, email, password from clients request
         const existingUser = await User.findOne({email}); // user findOne() mongoose method to find existing user
 
         if (existingUser) { 
@@ -19,16 +19,15 @@ const registerUser = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10); // hash the password with 10 salt rounds
-        const saveNewUser = await User.create({username: username, email: email, password: hashedPassword}); // saves user credentials to MongoDB
+        const saveNewUser = await User.create({username: username, email: email, password: hashedPassword}); // creates user credentials to MongoDB
 
         res.status(201).json({message: 'New Soundtrack Card User Created! Yay!'});
     } catch (err) {
         console.error(err); // displays the exact error that is caught 
-        res.status(500).json({message:"Whoops! Something went wrong with the registering 😱"});
+        res.status(500).json({message:"Whoops! Something went wrong with registering 😱"});
     }
 };
 
-// TODO: create login controller function
 const loginUser = async (req, res) => {
     // extract the email and password from request 
     // find the email in the mongo database for existing user, if nothing gets back respond with error message 
@@ -39,7 +38,7 @@ const loginUser = async (req, res) => {
         const {email, password} = req.body;
         const existingEmail = await User.findOne({email});
 
-        if (!existingEmail) { // is existing email doesn't exist in database, send error 
+        if (!existingEmail) { // if existing email doesn't exist in database, send error 
             return res.status(400).json({error: 'There is no email found'});
         }
 

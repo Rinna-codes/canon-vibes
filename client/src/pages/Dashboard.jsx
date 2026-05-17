@@ -49,7 +49,7 @@ const DashboardPage = () => {
 
         <p>You currently have {cards.length} Soundtrack Card(s)</p>
         {cards.length === 0 &&
-          <p>You universe is waiting. Create you First Soundtrack Card</p>}
+          <p>You universe is waiting. Create your first Soundtrack Card</p>}
 
         <button onClick={handleLogout}>Log Out</button>
     </div>

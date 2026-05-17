@@ -13,7 +13,7 @@ const searchCharacters = async (req, res) => {
         const URL = `https://comicvine.gamespot.com/api/characters/?api_key=${process.env.COMIC_VINE_API_KEY}&format=json&filter=name:${name}&field_list=id,name,image,real_name`;
 
         const response = await axios.get(URL); // makes the HTTP request 
-        res.json(response.data.results); // sends back the data as a response
+        res.json(response.data.results); // sends back the data client is searching for as a response
     } catch (err) {
         console.error(err); // displays the exact error that is caught 
         res.status(500).json({message:"Whoops! Something went wrong with the server 😱"});

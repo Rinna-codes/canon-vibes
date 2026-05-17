@@ -3,7 +3,7 @@
 const mongoResponse = require('mongoose'); // brings in mongoose 
 
  async function connectToDatabase() {
-    const uri = process.env.MONGODB_URI; // get MongoDB connection string from .env
+    const uri = process.env.MONGODB_URI; // get MongoDB connection string from .env file 
 
     try {
         const response = await mongoResponse.connect(uri); // connect to the database through the connection string 
