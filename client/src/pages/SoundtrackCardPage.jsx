@@ -1,5 +1,3 @@
-// TODO: Build the soundtrack card page 
-
 // needed imports
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
