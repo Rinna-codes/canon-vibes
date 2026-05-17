@@ -7,8 +7,15 @@ const characterRoutes = require('./routes/characterRoutes');
 const authenticateUsers = require('./routes/authRoutes');
 const cardRoutes = require('./routes/cardRoutes');
 const connectToDatabase = require('./config/db')
+const path = require('path');
 
 const app = express(); // creates an express instance object
+
+app.use(express.static(path.join(__dirname, '../client/dist'))); // serve static files frontend in production to react app
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
 
 // apply the json middleware for express to understand the request body from user 
 app.use(express.json());
