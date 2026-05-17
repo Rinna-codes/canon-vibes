@@ -42,7 +42,7 @@ const DashboardPage = () => {
         <h1>Dashboard Page</h1>
         <h2>Welcome back, {localStorage.getItem('username')}</h2>
 
-        <button onClick={() => navigate('/cardCreation')}>Create a Card</button>
+        <button onClick={() => navigate('/create')}>Create a Card</button>
         {cards.map(card => (
             <CardPreview key={card._id} card={card} onDelete={() => SetRefresh(prev => prev + 1)}/> // passes functions and card object as prop
         ))}
