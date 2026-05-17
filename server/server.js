@@ -11,18 +11,18 @@ const path = require('path');
 
 const app = express(); // creates an express instance object
 
-app.use(express.static(path.join(__dirname, '../client/dist'))); // serve static files frontend in production to react app
-
-app.get('/{*path}', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
-});
-
 // apply the json middleware for express to understand the request body from user 
 app.use(express.json());
 
 app.use('/api/characters', characterRoutes); // tell app to use this relative path to the router file
 app.use('/api/auth', authenticateUsers); // tell app to use this relative path to the authenticate file 
 app.use('/api/cards', cardRoutes); // tell app to use this relative path to the card file 
+
+app.use(express.static(path.join(__dirname, '../client/dist'))); // serve static files frontend in production to react app
+
+app.get('/{*path}', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
 
 connectToDatabase();
 
