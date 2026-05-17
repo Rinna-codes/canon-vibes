@@ -13,7 +13,7 @@ const app = express(); // creates an express instance object
 
 app.use(express.static(path.join(__dirname, '../client/dist'))); // serve static files frontend in production to react app
 
-app.get('*', (req, res) => {
+app.get('/{*path}', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
 
