@@ -168,7 +168,6 @@ function CreateCardForm() {
             onChange={handleChange}
             placeholder = "Personal Review"/>
 
-            <button onClick={() => navigate(`/edit/${card._id}`)}>Edit Card</button>
             <button onClick={handleSubmit}>{id ? 'Update Card' : 'Create Card'}</button>
         </div>
     );

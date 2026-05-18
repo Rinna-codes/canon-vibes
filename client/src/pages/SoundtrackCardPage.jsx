@@ -1,9 +1,9 @@
 // needed imports
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function SoundtrackCardPage() {
-
+    const navigate = useNavigate();
     const [card, setCard] = useState(null);
     const {id}= useParams(); // 
 
@@ -47,6 +47,8 @@ function SoundtrackCardPage() {
             <p>{card.vibeTags}</p>
             <p>{card.personalReview}</p>
             <img src={card.mediaPoster} alt="media poster"/>
+
+            <button onClick={() => navigate(`/edit/${card._id}`)}>Edit Card</button>
         </div>
     );
 };
