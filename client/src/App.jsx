@@ -24,6 +24,9 @@ function App() {
         {/* This makes the router to the users DashboardPage */}
         <Route path="/dashboard" element={<DashboardPage />} />
 
+        {/* This makes the router to the users editing card page */}
+        <Route path="/edit/:id" element={<CreateCardPage />} />
+
         {/* This makes the rotuer to the user Register Page */}
         <Route path="/register" element={<RegisterPage/>} />
 

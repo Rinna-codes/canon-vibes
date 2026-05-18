@@ -56,7 +56,7 @@ const deleteCard = async (req, res) => {
 }
 
 const getCardById = async (req, res) => {
-    // 1) get the card by comic vine id
+    // 1) get the card by id
     // 2) find the card using Card.findById
     // 3) send bad as a response 
 
@@ -72,6 +72,33 @@ const getCardById = async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({message:"Whoops! Unable to find card by id 😱"});
+    }
+}
+
+const updateCard = async (req, res) => {
+    // 1) get the card by id
+    // 2) find the card using Card.findByIdAndUpdate
+    // 3) send bad as a response 
+
+     try {
+        const cardID = req.params.id;
+        const userID = req.user.id;
+        const verifyCard = await Card.findById(cardID);
+
+        if (!verifyCard) {
+            return res.status(404).json({message: "Cannot find the card to edit!"});
+        }
+
+        if (verifyCard.user.toString() !== userID) { // checks the user if the correct one to be able to edit a card
+            return res.status(403).json({message: "This is not your card to delete!"});
+        }
+
+        const card = await Card.findByIdAndUpdate(cardID, req.body, { new: true });
+
+        res.status(200).json({card});
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message:"Whoops! Unable to find card by id that you wish to edit😱"});
     }
 }
 
@@ -92,4 +119,4 @@ const collectAllCards = async (req, res) => {
     }
 };
 
-module.exports = {createNewCard, deleteCard, getCardById, collectAllCards};
+module.exports = {createNewCard, deleteCard, getCardById, updateCard, collectAllCards};

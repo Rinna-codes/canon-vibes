@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function CreateCardForm() {
     const [formData, setFormData] = useState({
@@ -19,6 +20,26 @@ function CreateCardForm() {
 
     const [searchQuery, setSearchQuery] = useState(''); // saves the users search query for a charater
     const [searchResult, setSearchResult] = useState([]); // saves the array of characters from the users search query
+    const { id } = useParams();
+
+    useEffect(() => {
+    if (id) {
+        const fetchCard = async () => {
+            try {
+                const response = await fetch(`/api/cards/${id}`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                const result = await response.json();
+                setFormData(result.card);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        fetchCard();
+    }
+    }, [id]);
 
     const handleSearch = async (e) => {
         // fetches the character/search query with the token at the header
@@ -63,9 +84,12 @@ function CreateCardForm() {
         // redirect user to the dashboard page when creating a card is successful 
         event.preventDefault();
 
+        const method = id ? 'PUT' : 'POST';
+        const url = id ? `/api/cards/${id}` : '/api/cards';
+
         try {
-            const response = await fetch('/api/cards', {
-            method: 'POST',
+            const response = await fetch(url, {
+            method,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -144,7 +168,8 @@ function CreateCardForm() {
             onChange={handleChange}
             placeholder = "Personal Review"/>
 
-            <button onClick={handleSubmit}>Create Card</button>
+            <button onClick={() => navigate(`/edit/${card._id}`)}>Edit Card</button>
+            <button onClick={handleSubmit}>{id ? 'Update Card' : 'Create Card'}</button>
         </div>
     );
 }
