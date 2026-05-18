@@ -44,7 +44,7 @@ const DashboardPage = () => {
 
         <button onClick={() => navigate('/create')}>Create a Card</button>
         {cards.map(card => (
-            <CardPreview key={card._id} card={card} onDelete={() => SetRefresh(prev => prev + 1)}/> // passes functions and card object as prop
+            <CardPreview key={card._id} card={card} onDelete={() => setRefresh(prev => prev + 1)}/> // passes functions and card object as prop
         ))}
 
         <p>You currently have {cards.length} Soundtrack Card(s)</p>
