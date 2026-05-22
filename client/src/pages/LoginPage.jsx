@@ -54,7 +54,7 @@ const LoginPage = () => {
             onChange={(p) => setPassword(p.target.value)}
             placeholder='Password'
             />
-            <button>Submit</button>
+            <button type="submit">Submit</button>
 
             <Link to="/register">Don't have an account? Register here</Link>
         </form>
