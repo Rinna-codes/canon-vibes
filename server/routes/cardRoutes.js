@@ -3,10 +3,10 @@ const cardController = require('../controllers/cardController');
 const authToken = require('../middleware/authMiddleware');
 const router = express.Router();
 
-router.post('/', authToken, cardController.createNewCard); // user creates a card
-router.delete('/:id', authToken, cardController.deleteCard); // user deletes a card 
-router.get('/:id', authToken, cardController.getCardById); // user clicks on card to its soundtrack card page
-router.put('/:id', authToken, cardController.updateCard); // user can edit/update card
-router.get('/', authToken, cardController.collectAllCards); // get all the cards
+router.post('/', authToken, cardController.createNewCard);
+router.delete('/:id', authToken, cardController.deleteCard);
+router.get('/:id', authToken, cardController.getCardById);
+router.put('/:id', authToken, cardController.updateCard);
+router.get('/', authToken, cardController.collectAllCards);
 
 module.exports = router;
