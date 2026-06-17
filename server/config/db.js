@@ -1,5 +1,3 @@
-// only for establishing a connection with the MongoDB database with 
-
 const mongoResponse = require('mongoose'); // brings in mongoose 
 
  async function connectToDatabase() {
@@ -7,7 +5,7 @@ const mongoResponse = require('mongoose'); // brings in mongoose
 
     try {
         const response = await mongoResponse.connect(uri); // connect to the database through the connection string 
-        console.log("Connection to MongoDB was successful!"); // logs into terminal
+        console.log("Connection to MongoDB was successful!"); 
     } catch(error) {
         console.error("Connection to database failed:", error);
     }

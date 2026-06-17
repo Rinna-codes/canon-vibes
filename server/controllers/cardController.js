@@ -3,7 +3,7 @@
 const Card = require('../models/Card');
 
 const createNewCard = async (req, res) => {
-    // 1) get the new card data from user 
+    // 1) get the new card data from client requests
     // 2) check if data is valid 
     // 3) save new card into the database
     
@@ -15,7 +15,7 @@ const createNewCard = async (req, res) => {
             return res.status(401).json({message: "Error! Could not grab card data"});
         }
 
-        // unpack card data from request body and saves card data into the Mongo database
+        // unpack card data from request body and saves card data into database
         const createCard = await Card.create({...cardData, user : userID}); 
 
         res.status(201).json({message: 'New Soundtrack Card Created! Yay!'});
@@ -24,8 +24,6 @@ const createNewCard = async (req, res) => {
         res.status(500).json({message:"Whoops! Something went wrong with the creating a card 😱"});
     }
 };
-
-// TODO: Need to test out if this actually works, need to use Thunder Client with correct token to test function below
 
 const deleteCard = async (req, res) => {
     // verify the card's user before deletion through req.user.id
@@ -36,13 +34,13 @@ const deleteCard = async (req, res) => {
     try {
         const cardID = req.params.id;
         const userID = req.user.id; 
-        const card = await Card.findById(cardID); // identify the card user wishes to delete
+        const card = await Card.findById(cardID); // find the card user wishes to delete
 
         if (!card) {
             return res.status(404).json({message: "Cannot find the card you wish to delete!"});
         }
 
-        if (card.user.toString() !== userID) { // verifies the user if the correct one to be able to delete a card
+        if (card.user.toString() !== userID) { // verifies the user if the correct one can delete the selected card
             return res.status(403).json({message: "This is not your card to delete!"});
         }
 
@@ -78,7 +76,8 @@ const getCardById = async (req, res) => {
 const updateCard = async (req, res) => {
     // 1) get the card by id
     // 2) find the card using Card.findByIdAndUpdate
-    // 3) send bad as a response 
+    // 3) check if there is card to edit to begin with
+    // 4) send bad as a response 
 
      try {
         const cardID = req.params.id;
@@ -89,7 +88,7 @@ const updateCard = async (req, res) => {
             return res.status(404).json({message: "Cannot find the card to edit!"});
         }
 
-        if (verifyCard.user.toString() !== userID) { // checks the user if the correct one to be able to edit a card
+        if (verifyCard.user.toString() !== userID) { 
             return res.status(403).json({message: "This is not your card to delete!"});
         }
 
