@@ -1,13 +1,14 @@
-// a component will recieve a card object as a prop 
-// props are how data is passed from the parent component to the child component
-
-// <CardPreview card={card} /> // Each card data will pass through this code
+// <CardPreview card={card} /> // So that each card data will pass through this code
 import { useNavigate } from 'react-router-dom';
 
 const CardPreview = ({card, onDelete}) => {
+    // displays a card preview 
+    // superhero name, delete button, superhero image
+
     const navigate = useNavigate();
 
     const handleDelete = async () => {
+        // get card id to delete 
         try {
             const response = await fetch(`/api/cards/${card._id}`, {
             method: 'DELETE',

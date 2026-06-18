@@ -1,16 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import CardPreview from '../components/CardPreview'; // import the CardPreview function
+import CardPreview from '../components/CardPreview'; 
 import { useNavigate } from 'react-router-dom';
 
 const DashboardPage = () => {
     // create a state variable with a empty array 
     // fetch the cards relative path with useEffect with the token in the header
-    // store response in card state variable 
-    // temp: display the cards with only the superhero name 
+    // store response in card state variable
 
-    // start state variable with an empty array 
     const [cards, setCards] = useState([]);
-    const [refresh, setRefresh] = useState(0); // help the dashboard refetch cards after deleting a card
+    const [refresh, setRefresh] = useState(0); // for dashboard to refetch cards after deleting a card
     const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,7 +16,7 @@ const DashboardPage = () => {
       try {
         const response = await fetch('/api/cards', {
             headers: {
-                'Authorization' : `Bearer ${localStorage.getItem('token')}` // get the token from the header 
+                'Authorization' : `Bearer ${localStorage.getItem('token')}`
             }
         });
         const result = await response.json();
@@ -44,7 +42,7 @@ const DashboardPage = () => {
 
         <button onClick={() => navigate('/create')}>Create a Card</button>
         {cards.map(card => (
-            <CardPreview key={card._id} card={card} onDelete={() => setRefresh(prev => prev + 1)}/> // passes functions and card object as prop
+            <CardPreview key={card._id} card={card} onDelete={() => setRefresh(prev => prev + 1)}/> // passs functions and card object as prop
         ))}
 
         <p>You currently have {cards.length} Soundtrack Card(s)</p>

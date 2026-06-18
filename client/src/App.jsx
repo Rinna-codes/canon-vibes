@@ -1,12 +1,12 @@
-// contains the routers for each separeate web page
+// contains the routers for each web page
 
-// BrowserRouter — wraps your whole app and enables routing
-// Routes — a container that holds all your route definitions
-// Route — defines one specific path and which component to show
+// BrowserRouter: wraps the whole app and enables routing
+// Routes: a container that holds all route definitions
+// Route: defines one specific path and which component to show
 
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 
-// Need to import the pages into the app component
+// Need to import the pages into the app components
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/Dashboard';
 import RegisterPage from './pages/RegisterPage';
@@ -17,7 +17,8 @@ function App() {
   return(
     <BrowserRouter>
       <Routes>
-        {/* This makes the router to the user Login Page + Render Deployment */}
+
+        {/* This makes the router to the user Login Page & Render Deployment */}
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<LoginPage />} />
 

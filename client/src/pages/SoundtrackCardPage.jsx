@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function SoundtrackCardPage() {
+    // displays the soundctrack card page to the user 
+    
     const navigate = useNavigate();
     const [card, setCard] = useState(null);
     const {id}= useParams(); // 

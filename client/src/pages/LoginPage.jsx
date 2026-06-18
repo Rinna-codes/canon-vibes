@@ -5,21 +5,22 @@ const LoginPage = () => {
     // 1) make two state variable with email and password 
     // 2) create a form for the email and password and submit inputs button 
     // 3) each input variable should change it state whenever user types with onChange
+    // 4) if login successful, sent back the web token
+        // 5) save the token into storage
+        // 6) navigate client to dashboard page
 
-    // declare the email and password with useState and useNavigate
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
-        // when the user hits the submit button after inputting credentials 
         e.preventDefault();
 
         try {
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json', // tells server that the request is being sent as a json package
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({email, password}),
             });
@@ -28,7 +29,6 @@ const LoginPage = () => {
                 throw new Error('Login failed')
             }
 
-            // sent back the web token and saved into storage when login is sucessfull + navigate client to dashboard page
             const data = await response.json();
             localStorage.setItem('token', data.token);
             localStorage.setItem('username', data.username); // get the username for the user for dashboard greeting

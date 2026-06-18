@@ -18,9 +18,9 @@ function CreateCardForm() {
         moodBoard: []
     });
 
-    const [searchQuery, setSearchQuery] = useState(''); // saves the users search query for a charater
-    const [searchResult, setSearchResult] = useState([]); // saves the array of characters from the users search query
-    const { id } = useParams();
+    const [searchQuery, setSearchQuery] = useState(''); // to save the search query for a charater
+    const [searchResult, setSearchResult] = useState([]); // to save the array of characters from users search query
+    const { id } = useParams(); // to dynamically extract card id value from URL
 
     useEffect(() => {
     if (id) {
@@ -42,9 +42,9 @@ function CreateCardForm() {
     }, [id]);
 
     const handleSearch = async (e) => {
-        // fetches the character/search query with the token at the header
+        // fetches the search query with the token at the header
         // store the results in the searchResult list 
-        e.preventDefault(); // prevents the web page from reloading when called 
+        e.preventDefault();
 
         try {
             const response = await fetch(`/api/characters/search?name=${searchQuery}`, {
@@ -55,7 +55,7 @@ function CreateCardForm() {
             });
 
             if (!response.ok) {
-                throw new Error('Network response was not OKAY');
+                throw new Error('Network response is NOT okay');
             }
 
             const data = await response.json();
@@ -69,7 +69,7 @@ function CreateCardForm() {
         setFormData(prev => ({
             ...prev, // spread the exisiting state, keeping everything already in formData
 
-            // but replace these specific fields will update when user searches for character
+            // but replace these specific fields, will update when user searches for character
             superheroName: character.name,
             characterRealName: character.real_name,
             comicVineID: character.id,
@@ -80,8 +80,8 @@ function CreateCardForm() {
     };
     
     const handleSubmit = async (event) => {
-        // sends the formData to the fetch call endpoint with jwt token 
-        // redirect user to the dashboard page when creating a card is successful 
+        // sends the formData to the fetch call endpoint with token 
+        // redirect user to the dashboard page when card creation is successful 
         event.preventDefault();
 
         const method = id ? 'PUT' : 'POST';

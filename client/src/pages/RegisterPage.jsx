@@ -2,31 +2,30 @@ import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 
 const RegisterPage = () => {
-
     // declare the email and password with useState and useNavigate
+    // sent back the web token and navigate client to dashboard page
+
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
-        // when the user hits the submit button after inputting credentials 
         e.preventDefault();
 
         try {
             const response = await fetch('/api/auth/register', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json', // tells server that the request is being sent as a json package
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({username, email, password}),
             });
 
             if (!response.ok) {
-                throw new Error('Login failed')
+                throw new Error('Registering Log in failed')
             }
 
-            // sent back the web token and navigate client to dashboard page
             const data = await response.json();
             navigate('/login');
             
