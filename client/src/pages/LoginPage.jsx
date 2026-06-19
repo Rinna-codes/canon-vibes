@@ -41,11 +41,11 @@ const LoginPage = () => {
 
     // object use for better readability and better comprehension for the return statement.
     const classes = {
-        pageBody: 'h-screen flex bg-white-bg1',
+        pageBody: 'h-screen flex bg-[#FFAFCC]',
         formContainer:
-            'w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16',
-        formHeading: 'text-2xl  font-medium text-primary mt-4 mb-12 text-center',
-        btnContainer: 'bg-indigo-500 rounded-lg w-25 py-1 flex justify-center items-center mt-5 mx-auto'};
+            'w-full max-w-md m-auto bg-[#A2D2FF] rounded-lg border border-primaryBorder shadow-default py-15 px-20',
+        formHeading: 'font-mono text-[25px] mt-5 mb-5 text-center',
+        btnContainer: 'bg-[#FFC8DD] font-semibold rounded-lg w-40 py-2 flex justify-center items-center mt-5 mx-auto',};
 
     return (
         <div className='container-wrapper'>
@@ -54,22 +54,22 @@ const LoginPage = () => {
                     <h1 className={classes.formHeading}> Login into your account </h1>
 
                     <form onSubmit={handleSubmit}>
-                    <div>
-                        {/* use label htmlFor to label Email Address above the input field */}
+                    <div className="mb-6">
+                        <label htmlFor='Email Address' className='block text-[20px] font-mono'>Email</label>
                         <input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder='Email Address'/>
+                        style={{backgroundColor: 'white', margin: '1px', borderRadius: '4px', width: '250px', height: '35px'}}/>
                     </div>
 
-                    <div>
+                    <div className="mb-6">
+                        <label htmlFor='Password' className='block text-[20px] font-mono'>Password</label>
                         <input
                         type="password"
                         value={password}
                         onChange={(p) => setPassword(p.target.value)}
-                        placeholder='Password'
-                        />
+                        style={{backgroundColor: 'white', margin: '1px', borderRadius: '4px', width: '250px', height: '35px'}}/>
                     </div>
                     
                     <Link to="/register">Don't have an account? Register here</Link>
