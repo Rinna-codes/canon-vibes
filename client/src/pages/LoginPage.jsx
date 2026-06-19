@@ -41,22 +41,29 @@ const LoginPage = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+        <div>
+            {/* <label htmlFor='email'>Email Address</label> for putting Email Address label above input */}
             <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder='Email'
-            />
+            placeholder='Email Address'/>
+        </div>
 
+        <div>
             <input
             type="password"
             value={password}
             onChange={(p) => setPassword(p.target.value)}
             placeholder='Password'
             />
-            <button type="submit">Submit</button>
+        </div>
+        
+        <Link to="/register">Don't have an account? Register here</Link>
 
-            <Link to="/register">Don't have an account? Register here</Link>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
         </form>
     );
 };
