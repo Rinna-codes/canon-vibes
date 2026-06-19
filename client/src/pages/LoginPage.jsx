@@ -39,15 +39,16 @@ const LoginPage = () => {
         }
     };
 
+    // used for better readability and better comprehension for the return statement.
     const classes = {
-        pageBody: 'h-screen flex bg-gray-bg1',
+        pageBody: 'h-screen flex bg-white-bg1',
         formContainer:
             'w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16',
         formHeading: 'text-2xl  font-medium text-primary mt-4 mb-12 text-center',
-        btnContainer: 'flex justify-center items-center mt-6'};
+        btnContainer: 'bg-indigo-500 rounded-lg w-25 py-1 flex justify-center items-center mt-5 mx-auto'};
 
     return (
-        <div className='continer-wrapper'>
+        <div className='container-wrapper'>
             <div className={classes.pageBody}>
                 <div className={classes.formContainer}>
                     <h1 className={classes.formHeading}> Login into your account </h1>
