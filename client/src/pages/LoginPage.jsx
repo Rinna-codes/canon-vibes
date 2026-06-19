@@ -39,7 +39,7 @@ const LoginPage = () => {
         }
     };
 
-    // used for better readability and better comprehension for the return statement.
+    // object use for better readability and better comprehension for the return statement.
     const classes = {
         pageBody: 'h-screen flex bg-white-bg1',
         formContainer:
@@ -55,7 +55,7 @@ const LoginPage = () => {
 
                     <form onSubmit={handleSubmit}>
                     <div>
-                        {/* <label htmlFor='email'>Email Address</label> for putting Email Address label above the input field */}
+                        {/* use label htmlFor to label Email Address above the input field */}
                         <input
                         type="email"
                         value={email}
