@@ -48,16 +48,19 @@ const LoginPage = () => {
 
     const comicPanels = {
         topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3',
-        topRightPanel: 'flex min-h-45 flex-col items-center justify-center gap-4 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-10 sm:flex-row lg:col-span-3'
+        topRightPanel: 'flex min-h-45 flex-col items-center justify-center gap-4 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-10 sm:flex-row lg:col-span-3',
+        mainSection: 'flex flex-col items-center rounded-lg bg-[#FFC8DD] border-5 border-black px-8 py-10 sm:px-10 lg:col-span-6'
     }
     
     const comicWording = {
         appTitle: 'relative z-10 -rotate-12 text-5xl font-bold tracking-tight text-black',
-        navLinks: 'text-5xl font-bold text-white hover:text-black'
+        navLinks: 'text-5xl font-bold text-white hover:text-black',
+        loginHeader: 'mb-6 text-2xl font-semibold text-black',
+        loginLabels: 'mb-1 text-sm font-medium text-black'
     };
 
     const comicActions = {
-        titleBurst: 'absolute inset-0 h-full w-full scale-125 object-contain'
+        titleBurst: 'absolute inset-0 h-full w-full scale-125 object-contain',
     };
 
     return (
@@ -77,6 +80,40 @@ const LoginPage = () => {
                         <Link to='/' className={comicWording.navLinks}>Home</Link>
                         <Link to='/register' className={comicWording.navLinks}>Register</Link>
                         <Link to='' className={comicWording.navLinks}>About</Link>
+                    </div>
+                    
+                    <div className={comicPanels.mainSection}>
+                        <h1 className={comicWording.loginHeader}>Login into your account</h1>
+                        <form onSubmit={handleSubmit} className='w-full max-w-sm'>
+
+                            <div className='mb-6'>
+                                <label htmlFor='email' className={comicWording.loginLabels}>Email</label>
+                                <input
+                                id='email'
+                                type='email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'/>
+                            </div>
+                            
+                            <div className='mb-6'>
+                                <label htmlFor='password' className={comicWording.loginLabels}>Password</label>
+                                <input
+                                id='password'
+                                type='password'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'/>
+                            </div>
+
+                            <Link to='/register' className={comicWording.loginLabels}>Don&apos;t have an account? Register here!</Link>
+
+                            <div className='mt-6 flex justify-center'>
+                                <button
+                                type='submit'
+                                className='rounded-full bg-[#CDB4DB] px-6 py-2 text-sm font-semibold text-black hover:text-white hover:bg-black'>Submit</button>
+                            </div>
+                        </form> 
                     </div>
                 </div>
             </div>
