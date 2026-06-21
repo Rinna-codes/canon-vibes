@@ -49,14 +49,16 @@ const LoginPage = () => {
     const comicPanels = {
         topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3',
         topRightPanel: 'flex min-h-45 flex-col items-center justify-center gap-4 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-10 sm:flex-row lg:col-span-3',
-        mainSection: 'flex flex-col items-center rounded-lg bg-[#FFC8DD] border-5 border-black px-8 py-10 sm:px-10 lg:col-span-6'
-    }
+        mainSection: 'flex flex-col items-center rounded-lg bg-[#FFC8DD] border-5 border-black px-8 py-10 sm:px-10 lg:col-span-6',
+        bottomPanels: 'min-h-40 rounded-lg border-5 border-black px-8 py-8 lg:col-span-2',
+        bottomrightPanel: 'flex min-h-40 flex-col items-center justify-center rounded-lg border-5 border-black px-8 py-8 text-center lg:col-span-2'
+    };
     
     const comicWording = {
         appTitle: 'relative z-10 -rotate-12 text-5xl font-bold tracking-tight text-black',
         navLinks: 'text-5xl font-bold text-white hover:text-black',
         loginHeader: 'mb-6 text-2xl font-semibold text-black',
-        loginLabels: 'mb-1 text-sm font-medium text-black'
+        Labels: 'mb-1 text-sm font-medium text-black'
     };
 
     const comicActions = {
@@ -82,6 +84,7 @@ const LoginPage = () => {
                         <Link to='' className={comicWording.navLinks}>About</Link>
                     </div>
                     
+                    {/* largest, main panel, login form */}
                     <div className={comicPanels.mainSection}>
                         <h1 className={comicWording.loginHeader}>Login into your account</h1>
                         <form onSubmit={handleSubmit} className='w-full max-w-sm'>
@@ -97,7 +100,7 @@ const LoginPage = () => {
                             </div>
                             
                             <div className='mb-6'>
-                                <label htmlFor='password' className={comicWording.loginLabels}>Password</label>
+                                <label htmlFor='password' className={comicWording.Labels}>Password</label>
                                 <input
                                 id='password'
                                 type='password'
@@ -106,7 +109,7 @@ const LoginPage = () => {
                                 className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'/>
                             </div>
 
-                            <Link to='/register' className={comicWording.loginLabels}>Don&apos;t have an account? Register here!</Link>
+                            <Link to='/register' className={comicWording.Labels}>Don&apos;t have an account? Register here!</Link>
 
                             <div className='mt-6 flex justify-center'>
                                 <button
@@ -115,6 +118,23 @@ const LoginPage = () => {
                             </div>
                         </form> 
                     </div>
+
+                    {/* bottom left panel, TBD*/}
+                    <div className={comicPanels.bottomPanels}>
+                       {/* Context TBD */} 
+                    </div>
+
+                    {/* bottom middle panel, TBD*/}
+                    <div className={comicPanels.bottomPanels}>
+                       {/* Context TBD */} 
+                    </div>
+
+                    {/* bottom right panel, TBD*/}
+                    <div className={comicPanels.bottomrightPanel}>
+                       <p className={comicWording.loginLabels}>Create your soundtrack cards!</p>
+                       <p className="mt-2 text-sm text-indigo-400">Try it out!</p>
+                    </div>
+
                 </div>
             </div>
         </div>
