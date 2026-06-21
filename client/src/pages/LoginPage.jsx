@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
+import canonBurst from '../assets/canon-vibes-burst.svg';
 
 const LoginPage = () => {
     // 1) make two state variable with email and password 
@@ -72,7 +73,7 @@ const LoginPage = () => {
 
                     {/* top left panel, title of web application */}
                     <div className={comicPanels.topLeftPanel}>
-                    <img src='src/assets/canon-vibes-burst.svg' alt="" className={comicActions.titleBurst}/>
+                    <img src={canonBurst} alt="" className={comicActions.titleBurst}/>
                     <p className={comicWording.appTitle}>
                         Canon Vibes</p>
                     </div>
