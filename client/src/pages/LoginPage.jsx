@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import canonBurst from '../assets/canon-vibes-burst.svg';
+import SpeechBubble from '../components/SpeechBubble.jsx';
 
 const LoginPage = () => {
     // 1) make two state variable with email and password 
@@ -80,9 +81,15 @@ const LoginPage = () => {
 
                     {/* top right panel, navigation links*/}
                     <div className={comicPanels.topRightPanel}>
-                        <Link to='/' className={comicWording.navLinks}>Home</Link>
-                        <Link to='/register' className={comicWording.navLinks}>Register</Link>
-                        <Link to='' className={comicWording.navLinks}>About</Link>
+                        <SpeechBubble>
+                            <Link to='/' className={comicWording.navLinks}>Home</Link>
+                        </SpeechBubble>
+                        <SpeechBubble>
+                            <Link to='/register' className={comicWording.navLinks}>Register</Link>
+                        </SpeechBubble>
+                        <SpeechBubble>
+                            <Link to='' className={comicWording.navLinks}>About</Link>
+                        </SpeechBubble>
                     </div>
                     
                     {/* largest, main panel, login form */}
