@@ -47,11 +47,13 @@ const LoginPage = () => {
     };
 
     const comicPanels = {
-        topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3'
+        topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3',
+        topRightPanel: 'flex min-h-45 flex-col items-center justify-center gap-4 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-10 sm:flex-row lg:col-span-3'
     }
     
     const comicWording = {
-        appTitle: 'relative z-10 -rotate-12 text-5xl font-bold tracking-tight text-black'
+        appTitle: 'relative z-10 -rotate-12 text-5xl font-bold tracking-tight text-black',
+        navLinks: 'text-5xl font-bold text-white hover:text-black'
     };
 
     const comicActions = {
@@ -70,7 +72,12 @@ const LoginPage = () => {
                         Canon Vibes</p>
                     </div>
 
-
+                    {/* top right panel, navigation links*/}
+                    <div className={comicPanels.topRightPanel}>
+                        <Link to='/' className={comicWording.navLinks}>Home</Link>
+                        <Link to='/register' className={comicWording.navLinks}>Register</Link>
+                        <Link to='' className={comicWording.navLinks}>About</Link>
+                    </div>
                 </div>
             </div>
         </div>
