@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
-import canonBurst from '../assets/canon-vibes-burst.svg';
+import canonBurst from '.../assets/canon-vibes-burst.svg';
 
 const LoginPage = () => {
     // 1) make two state variable with email and password 
