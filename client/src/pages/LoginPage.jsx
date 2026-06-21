@@ -40,44 +40,37 @@ const LoginPage = () => {
     };
 
     // object use for better readability and better comprehension for the return statement.
-    const classes = {
-        pageBody: 'h-screen flex bg-[#FFAFCC]',
-        formContainer:
-            'w-full max-w-md m-auto bg-[#A2D2FF] rounded-lg border border-primaryBorder shadow-default py-15 px-20',
-        formHeading: 'font-mono text-[25px] mt-5 mb-5 text-center',
-        btnContainer: 'bg-[#FFC8DD] font-semibold rounded-lg w-40 py-2 flex justify-center items-center mt-5 mx-auto',};
+    const pageForm = {
+        webPageGrid: 'bg-white-900 py-12 sm:py-16',
+        panelContainer:'mx-auto max-w-7xl px-6 lg:px-8',
+        panelGrid: 'grid grid-cols-1 gap-6 lg:grid-cols-6'
+    };
+
+    const comicPanels = {
+        topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3'
+    }
+    
+    const comicWording = {
+        appTitle: 'relative z-10 -rotate-12 text-5xl font-bold tracking-tight text-black'
+    };
+
+    const comicActions = {
+        titleBurst: 'absolute inset-0 h-full w-full scale-125 object-contain'
+    };
 
     return (
-        <div className='container-wrapper'>
-            <div className={classes.pageBody}>
-                <div className={classes.formContainer}>
-                    <h1 className={classes.formHeading}> Login into your account </h1>
+        <div className={pageForm.webPageGrid}> 
+            <div className={pageForm.panelContainer}>
+                <div className={pageForm.panelGrid}>
 
-                    <form onSubmit={handleSubmit}>
-                    <div className="mb-6">
-                        <label htmlFor='Email Address' className='block text-[20px] font-mono'>Email</label>
-                        <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        style={{backgroundColor: 'white', margin: '1px', borderRadius: '4px', width: '250px', height: '35px'}}/>
+                    {/* top left panel, title of web application */}
+                    <div className={comicPanels.topLeftPanel}>
+                    <img src='src/assets/canon-vibes-burst.svg' alt="" className={comicActions.titleBurst}/>
+                    <p className={comicWording.appTitle}>
+                        Canon Vibes</p>
                     </div>
 
-                    <div className="mb-6">
-                        <label htmlFor='Password' className='block text-[20px] font-mono'>Password</label>
-                        <input
-                        type="password"
-                        value={password}
-                        onChange={(p) => setPassword(p.target.value)}
-                        style={{backgroundColor: 'white', margin: '1px', borderRadius: '4px', width: '250px', height: '35px'}}/>
-                    </div>
-                    
-                    <Link to="/register">Don't have an account? Register here</Link>
 
-                    <div className={classes.btnContainer}>
-                        <button type="submit">Submit</button>
-                    </div>
-                    </form>
                 </div>
             </div>
         </div>
