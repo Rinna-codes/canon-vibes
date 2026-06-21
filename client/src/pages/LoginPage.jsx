@@ -56,10 +56,10 @@ const LoginPage = () => {
     };
     
     const comicWording = {
-        appTitle: 'relative z-10 -rotate-12 text-5xl font-bold tracking-tight text-black',
-        navLinks: 'text-5xl font-bold text-white hover:text-black',
-        loginHeader: 'mb-6 text-2xl font-semibold text-black',
-        Labels: 'mb-1 text-sm font-medium text-black'
+        appTitle: 'relative z-10 -rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
+        navLinks: 'text-5xl font-comic text-white hover:text-black',
+        loginHeader: 'mb-6 text-2xl font-comic text-black',
+        Labels: 'mb-1 text-lg font-comic text-black'
     };
 
     const comicActions = {
@@ -91,7 +91,7 @@ const LoginPage = () => {
                         <form onSubmit={handleSubmit} className='w-full max-w-sm'>
 
                             <div className='mb-6'>
-                                <label htmlFor='email' className={comicWording.loginLabels}>Email</label>
+                                <label htmlFor='email' className={comicWording.Labels}>Email</label>
                                 <input
                                 id='email'
                                 type='email'
@@ -115,7 +115,7 @@ const LoginPage = () => {
                             <div className='mt-6 flex justify-center'>
                                 <button
                                 type='submit'
-                                className='rounded-full bg-[#CDB4DB] px-6 py-2 text-sm font-semibold text-black hover:text-white hover:bg-black'>Submit</button>
+                                className='rounded-full bg-[#CDB4DB] px-6 py-2 text-sm font-comic text-black hover:text-white hover:bg-black'>Submit</button>
                             </div>
                         </form> 
                     </div>
@@ -132,8 +132,8 @@ const LoginPage = () => {
 
                     {/* bottom right panel, TBD*/}
                     <div className={comicPanels.bottomrightPanel}>
-                       <p className={comicWording.loginLabels}>Create your soundtrack cards!</p>
-                       <p className="mt-2 text-sm text-indigo-400">Try it out!</p>
+                       <p className={comicWording.Labels}>Create your soundtrack cards!</p>
+                       <p className="mt-2 text-sm font-comic text-indigo-400">Try it out!</p>
                     </div>
 
                 </div>
