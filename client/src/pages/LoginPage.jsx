@@ -53,8 +53,9 @@ const LoginPage = () => {
         topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3',
         topRightPanel: 'flex min-h-45 flex-col items-center justify-center gap-4 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-10 sm:flex-row lg:col-span-3',
         mainSection: 'flex flex-col lg:flex-row items-center rounded-lg bg-[#FFC8DD] border-5 border-black gap-20 px-8 py-10 sm:px-10 lg:col-span-6',
-        bottomPanels: 'min-h-40 rounded-lg border-5 border-black px-8 py-8 lg:col-span-2',
-        bottomrightPanel: 'flex min-h-40 flex-col items-center justify-center rounded-lg border-5 border-black px-8 py-8 text-center lg:col-span-2'
+        bottomLeftPanel: 'min-h-40 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-8 lg:col-span-2',
+        bottomMiddlePanel: 'min-h-40 rounded-lg bg-[#FFAFCC] border-5 border-black px-8 py-8 lg:col-span-2',
+        bottomrRightPanel: 'flex min-h-40 flex-col bg-[#BDE0FE] items-center justify-center rounded-lg border-5 border-black px-8 py-8 text-center lg:col-span-2'
     };
     
     const comicWording = {
@@ -138,17 +139,17 @@ const LoginPage = () => {
                     </div>
 
                     {/* bottom left panel, TBD*/}
-                    <div className={comicPanels.bottomPanels}>
+                    <div className={comicPanels.bottomLeftPanel}>
                        {/* Context TBD */} 
                     </div>
 
                     {/* bottom middle panel, TBD*/}
-                    <div className={comicPanels.bottomPanels}>
+                    <div className={comicPanels.bottomMiddlePanel}>
                        {/* Context TBD */} 
                     </div>
 
                     {/* bottom right panel, TBD*/}
-                    <div className={comicPanels.bottomrightPanel}>
+                    <div className={comicPanels.bottomrRightPanel}>
                        <p className={comicWording.Labels}>Create your soundtrack cards!</p>
                        <p className="mt-2 text-sm font-comic text-indigo-400">Try it out!</p>
                     </div>
