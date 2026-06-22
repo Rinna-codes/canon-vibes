@@ -59,7 +59,8 @@ const LoginPage = () => {
     const comicWording = {
         appTitle: 'relative z-10 -rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
         navLinks: 'text-5xl font-comic text-white hover:text-black',
-        loginHeader: 'mb-6 text-2xl font-comic text-black',
+        loginCard: 'relative z-10 bg-[#BDE0FE] rounded-lg border-5 border-black shadow-xl/50 px-10 py-8',
+        loginHeader: 'mb-6 text-center text-2xl font-comic text-black',
         Labels: 'mb-1 text-lg font-comic text-black'
     };
 
@@ -94,37 +95,42 @@ const LoginPage = () => {
                     
                     {/* largest, main panel, login form */}
                     <div className={comicPanels.mainSection}>
-                        <h1 className={comicWording.loginHeader}>Login into your account</h1>
-                        <form onSubmit={handleSubmit} className='w-full max-w-sm'>
+                        
+                        {/* new div container to hold the blue block behind the login card */}
+                        <div className={comicWording.loginCard}>
+                            <h2 className={comicWording.loginHeader}>Welcome Back!</h2>
+                            <form onSubmit={handleSubmit} className='w-full max-w-sm'>
 
-                            <div className='mb-6'>
-                                <label htmlFor='email' className={comicWording.Labels}>Email</label>
-                                <input
-                                id='email'
-                                type='email'
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'/>
-                            </div>
-                            
-                            <div className='mb-6'>
-                                <label htmlFor='password' className={comicWording.Labels}>Password</label>
-                                <input
-                                id='password'
-                                type='password'
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'/>
-                            </div>
+                                <div className='mb-6'>
+                                    <label htmlFor='email' className={comicWording.Labels}>Email</label>
+                                    <input
+                                    id='email'
+                                    type='email'
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'/>
+                                </div>
+                                
+                                <div className='mb-6'>
+                                    <label htmlFor='password' className={comicWording.Labels}>Password</label>
+                                    <input
+                                    id='password'
+                                    type='password'
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'/>
+                                </div>
 
-                            <Link to='/register' className={comicWording.Labels}>Don&apos;t have an account? Register here!</Link>
+                                {/* TO DO: implement the forgot password functionality later */}
+                                <Link to='/' className={comicWording.Labels}>Forgot Password? Click Here!</Link>
 
-                            <div className='mt-6 flex justify-center'>
-                                <button
-                                type='submit'
-                                className='rounded-full bg-[#CDB4DB] px-6 py-2 text-sm font-comic text-black hover:text-white hover:bg-black'>Submit</button>
-                            </div>
-                        </form> 
+                                <div className='mt-6 flex justify-center'>
+                                    <button
+                                    type='submit'
+                                    className='rounded-full bg-[#CDB4DB] px-6 py-2 text-sm font-comic text-black hover:text-white hover:bg-black'>Submit</button>
+                                </div>
+                            </form>
+                        </div> 
                     </div>
 
                     {/* bottom left panel, TBD*/}
