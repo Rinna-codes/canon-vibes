@@ -52,8 +52,20 @@ const RegisterPage = () => {
     return (
         <div className={pageForm.webPageGrid}>
             <div className={pageForm.panelContainer}>
-                {/* top left panal, Canon Vibes titles */}
-                
+                <div className={pageForm.panelGrid}>
+                    
+                    {/* top left panel, Canon Vibes titles */}
+                    
+                    {/* top right panel, navigation links */}
+
+                    {/* main section, registration form */}
+
+                    {/* bottom left panel */}
+
+                    {/* bottom middle panel */}
+
+                    {/* bottom right panel */}
+                </div>
             </div>
         </div>
     );
