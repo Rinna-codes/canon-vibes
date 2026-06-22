@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import canonBurst from '../assets/canon-vibes-burst.svg';
+import herbie from '../assets/herbie.svg';
 import SpeechBubble from '../components/SpeechBubble.jsx';
 
 const LoginPage = () => {
@@ -51,7 +52,7 @@ const LoginPage = () => {
     const comicPanels = {
         topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3',
         topRightPanel: 'flex min-h-45 flex-col items-center justify-center gap-4 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-10 sm:flex-row lg:col-span-3',
-        mainSection: 'flex flex-col items-center rounded-lg bg-[#FFC8DD] border-5 border-black px-8 py-10 sm:px-10 lg:col-span-6',
+        mainSection: 'flex flex-col lg:flex-row items-center rounded-lg bg-[#FFC8DD] border-5 border-black gap-20 px-8 py-10 sm:px-10 lg:col-span-6',
         bottomPanels: 'min-h-40 rounded-lg border-5 border-black px-8 py-8 lg:col-span-2',
         bottomrightPanel: 'flex min-h-40 flex-col items-center justify-center rounded-lg border-5 border-black px-8 py-8 text-center lg:col-span-2'
     };
@@ -59,8 +60,8 @@ const LoginPage = () => {
     const comicWording = {
         appTitle: 'relative z-10 -rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
         navLinks: 'text-5xl font-comic text-white hover:text-black',
-        loginCard: 'relative z-10 bg-[#BDE0FE] rounded-lg border-5 border-black shadow-xl/50 px-10 py-8',
-        loginHeader: 'mb-6 text-center text-2xl font-comic text-black',
+        loginCard: 'relative z-10 bg-[#BDE0FE] rounded-lg border-5 border-black shadow-xl/50 px-8 py-',
+        loginHeader: 'mb-6 my-3 text-center text-2xl font-comic text-black',
         Labels: 'mb-1 text-lg font-comic text-black'
     };
 
@@ -95,8 +96,6 @@ const LoginPage = () => {
                     
                     {/* largest, main panel, login form */}
                     <div className={comicPanels.mainSection}>
-                        
-                        {/* new div container to hold the blue block behind the login card */}
                         <div className={comicWording.loginCard}>
                             <h2 className={comicWording.loginHeader}>Welcome Back!</h2>
                             <form onSubmit={handleSubmit} className='w-full max-w-sm'>
@@ -124,13 +123,18 @@ const LoginPage = () => {
                                 {/* TO DO: implement the forgot password functionality later */}
                                 <Link to='/' className={comicWording.Labels}>Forgot Password? Click Here!</Link>
 
-                                <div className='mt-6 flex justify-center'>
+                                <div className='mt-6 my-3 flex justify-center'>
                                     <button
                                     type='submit'
                                     className='rounded-full bg-[#CDB4DB] px-6 py-2 text-sm font-comic text-black hover:text-white hover:bg-black'>Submit</button>
                                 </div>
                             </form>
                         </div> 
+                        
+                        <div className='flex flex-col items-center justify-center'>
+                            <img src={herbie} alt="Herbie" className="mx-auto my-4 h-50 w-50"/>
+                        </div>
+
                     </div>
 
                     {/* bottom left panel, TBD*/}
