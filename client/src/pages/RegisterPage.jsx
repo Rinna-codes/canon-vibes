@@ -55,7 +55,9 @@ const RegisterPage = () => {
                 <div className={pageForm.panelGrid}>
                     
                     {/* top left panel, Canon Vibes titles */}
-                    
+                    <div className={comicPanels.topLeftPanel}>
+                        
+                    </div>
                     {/* top right panel, navigation links */}
 
                     {/* main section, registration form */}
