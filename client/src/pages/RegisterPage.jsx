@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
+import canonBurst from '../assets/canon-vibes-burst.svg';
 
 const RegisterPage = () => {
     // declare the email and password with useState and useNavigate
@@ -49,6 +50,18 @@ const RegisterPage = () => {
         bottomrRightPanel: 'flex min-h-40 flex-col bg-[#BDE0FE] items-center justify-center rounded-lg border-5 border-black px-8 py-8 text-center lg:col-span-2'
     };
 
+    const comicWording = {
+        appTitle: 'relative z-10 rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
+        navLinks: 'text-5xl font-comic text-white hover:text-black',
+        loginCard: 'relative z-10 bg-[#BDE0FE] rounded-lg border-5 border-black shadow-xl/50 px-8 py-',
+        loginHeader: 'mb-6 my-3 text-center text-2xl font-comic text-black',
+        Labels: 'mb-1 text-lg font-comic text-black'
+    };
+
+    const comicActions = {
+        titleBurst: 'absolute inset-0 h-full w-full scale-125 object-contain',
+    };
+
     return (
         <div className={pageForm.webPageGrid}>
             <div className={pageForm.panelContainer}>
@@ -56,7 +69,8 @@ const RegisterPage = () => {
                     
                     {/* top left panel, Canon Vibes titles */}
                     <div className={comicPanels.topLeftPanel}>
-                        
+                        <img src={canonBurst} alt="Canon Vibes Burst" className={comicActions.titleBurst}/>
+                        <p className={comicWording.appTitle}>Canon Vibes</p>
                     </div>
                     {/* top right panel, navigation links */}
 
