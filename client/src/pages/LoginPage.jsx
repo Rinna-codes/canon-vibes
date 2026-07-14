@@ -43,6 +43,8 @@ const LoginPage = () => {
     };
 
     // object use for better readability and better comprehension for the return statement.
+    
+    // TO DO : Think about whether to move these objects into a separate file for better organization and readability
     const pageForm = {
         webPageGrid: 'bg-white-900 py-12 sm:py-16',
         panelContainer:'mx-auto max-w-7xl px-6 lg:px-8',
