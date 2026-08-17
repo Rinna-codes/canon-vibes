@@ -1,13 +1,13 @@
-const mongoResponse = require('mongoose'); // brings in mongoose 
+const mongoResponse = require('mongoose'); // requires mongoose 
 
  async function connectToDatabase() {
-    const uri = process.env.MONGODB_URI; // get MongoDB connection string from .env file 
+    const uri = process.env.MONGODB_URI; // retrieve the MongoDB conn. string in .env file 
 
     try {
-        const response = await mongoResponse.connect(uri); // connect to the database through the connection string 
+        const response = await mongoResponse.connect(uri); // connect the database through the conn. string 
         console.log("Connection to MongoDB was successful!"); 
     } catch(error) {
-        console.error("Connection to database failed:", error);
+        console.error("Connection to MongoDB failed:", error);
     }
 }
 
