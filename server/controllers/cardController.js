@@ -1,4 +1,4 @@
-// contains the function that creates and views the soundtrack cards
+// contains the functions that creates and views the soundtrack cards to the user
 
 const Card = require('../models/Card');
 
@@ -15,7 +15,7 @@ const createNewCard = async (req, res) => {
             return res.status(401).json({message: "Error! Could not grab card data"});
         }
 
-        // unpack card data from request body and saves card data into database
+        // unpack the card's data from request body and saves card data into database
         const createCard = await Card.create({...cardData, user : userID}); 
 
         res.status(201).json({message: 'New Soundtrack Card Created! Yay!'});
@@ -26,9 +26,8 @@ const createNewCard = async (req, res) => {
 };
 
 const deleteCard = async (req, res) => {
-    // verify the card's user before deletion through req.user.id
-    // get the card id that user wishes to delete by req.params.id
-    // call Card.findByIdAndDelete(id)
+    // verify the card's user with req.user.id
+    // identify the card that user requests to delete using req.params.id
     // send back a success as response 
 
     try {
@@ -40,12 +39,12 @@ const deleteCard = async (req, res) => {
             return res.status(404).json({message: "Cannot find the card you wish to delete!"});
         }
 
-        if (card.user.toString() !== userID) { // verifies the user if the correct one can delete the selected card
+        if (card.user.toString() !== userID) { // verifies the user if the correct one who can delete the selected card
             return res.status(403).json({message: "This is not your card to delete!"});
         }
 
         const deleteCard = await Card.findByIdAndDelete(cardID);
-        res.status(200).json({message: "Deletion of the card was successful"});
+        res.status(200).json({message: "Deletion successful"});
 
     } catch (err) {
         console.error(err);
@@ -89,7 +88,7 @@ const updateCard = async (req, res) => {
         }
 
         if (verifyCard.user.toString() !== userID) { 
-            return res.status(403).json({message: "This is not your card to delete!"});
+            return res.status(403).json({message: "You have no card to edit!"});
         }
 
         const card = await Card.findByIdAndUpdate(cardID, req.body, { new: true });
