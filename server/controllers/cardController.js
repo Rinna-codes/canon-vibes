@@ -4,7 +4,7 @@ const Card = require('../models/Card');
 
 const createNewCard = async (req, res) => {
     // 1) get the new card data from client requests
-    // 2) check if data is valid 
+    // 2) check if the card data is valid 
     // 3) save new card into the database
     
     try {
@@ -36,7 +36,7 @@ const deleteCard = async (req, res) => {
         const card = await Card.findById(cardID); // find the card user wishes to delete
 
         if (!card) {
-            return res.status(404).json({message: "Cannot find the card you wish to delete!"});
+            return res.status(404).json({message: "Cannot find the card to delete!"});
         }
 
         if (card.user.toString() !== userID) { // verifies the user if the correct one who can delete the selected card
@@ -55,7 +55,7 @@ const deleteCard = async (req, res) => {
 const getCardById = async (req, res) => {
     // 1) get the card by id
     // 2) find the card using Card.findById
-    // 3) send bad as a response 
+    // 3) send back the card as a response
 
     try {
         const cardID = req.params.id;
