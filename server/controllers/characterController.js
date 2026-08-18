@@ -2,7 +2,7 @@ const axios = require('axios');
 
 // Logical function that collects information from API call for the character searched for 
 const searchCharacters = async (req, res) => {
-    // 1) Get the search term from the query string on thr req -> req.query
+    // 1) Get the search term from the query string on the req -> req.query
     // 2) Make the comic vince URL
     // 3) Make a HTTP request using axios 
     // 4) complete promise using async and await 
