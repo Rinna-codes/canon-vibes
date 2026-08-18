@@ -19,7 +19,7 @@ const CardPreview = ({card, onDelete}) => {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to create card');
+                throw new Error('Failed to delete card');
             }
 
             const data = await response.json();
