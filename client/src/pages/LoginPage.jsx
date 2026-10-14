@@ -66,8 +66,8 @@ const LoginPage = () => {
         loginCard: 'relative z-10 bg-[#BDE0FE] rounded-lg border-5 border-black shadow-xl/50 px-8 py-',
         loginHeader: 'mb-6 my-3 text-center text-2xl font-comic text-black',
         Labels: 'mb-1 text-lg font-comic text-black',
-        bannerHeader: '-rotate-5 font-comic text-3xl text-black',
-        bannerSubText: 'mt-2 text-sm -rotate-5 font-comic text-indigo-400'
+        bannerHeader: '-rotate-5 font-comic text-lg text-black',
+        bannerSubText: 'mt-2 text-sm -rotate-3 font-comic text-indigo-400'
     };
 
     const comicActions = {
@@ -162,8 +162,8 @@ const LoginPage = () => {
                             <img src={background1} alt="Background" className={comicActions.backgroundText1}/>
 
                             <div className="relative z-10 flex h-full w-full flex-col items-center justify-center text-center">
-                                <p className={comicWording.bannerHeader}>Create your soundtrack cards!</p>
-                                <p className={comicWording.bannerSubText}>Try it out!</p>
+                                <p className={`absolute left-[14%] top-[30%] w-[62%] ${comicWording.bannerHeader}`}>Create your soundtrack cards!</p>
+                                <p className={`absolute left-[48%] top-[88%] -translate-x-1/2 ${comicWording.bannerSubText}`}>Try it out!</p> 
                             </div>
                         </div>
                     </div>
