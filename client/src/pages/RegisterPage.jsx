@@ -48,7 +48,7 @@ const RegisterPage = () => {
         mainSection: 'flex flex-col lg:flex-row items-center rounded-lg bg-[#FFC8DD] border-5 border-black gap-20 px-8 py-10 sm:px-10 lg:col-span-6',
         bottomLeftPanel: 'min-h-40 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-8 lg:col-span-2',
         bottomMiddlePanel: 'min-h-40 rounded-lg bg-[#FFAFCC] border-5 border-black px-8 py-8 lg:col-span-2',
-        bottomrRightPanel: 'flex min-h-40 flex-col bg-[#BDE0FE] items-center justify-center rounded-lg border-5 border-black px-8 py-8 text-center lg:col-span-2'
+        bottomRightPanel: 'flex min-h-40 flex-col bg-[#BDE0FE] items-center justify-center rounded-lg border-5 border-black px-8 py-8 text-center lg:col-span-2'
     };
 
 
@@ -81,7 +81,14 @@ const RegisterPage = () => {
                         <SpeechBubble>
                             <Link to='/login' className={comicWording.navLinks}>Login</Link>
                         </SpeechBubble>
-                        {/*TO DO: Need to put the rest of the navigation linkes for this comic panel*/}
+
+                        <SpeechBubble>
+                            <Link to='' className={comicWording.navLinks}>Home</Link>
+                        </SpeechBubble>
+
+                        <SpeechBubble>
+                            <Link to='' className={comicWording.navLinks}>About</Link>
+                        </SpeechBubble>
                     </div>
 
                     {/* main section, registration form */}
@@ -103,7 +110,7 @@ const RegisterPage = () => {
                     <div className={comicPanels.bottomRightPanel}>
                         {/*TO DO: Fill out the rest of the design for the bottom comic panel*/}
                     </div>
-                    
+
                 </div>
             </div>
         </div>
