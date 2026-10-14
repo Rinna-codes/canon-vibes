@@ -91,7 +91,7 @@ const LoginPage = () => {
                     {/* top right panel, navigation links*/}
                     <div className={comicPanels.topRightPanel}>
                         <SpeechBubble>
-                            <Link to='/' className={comicWording.navLinks}>Home</Link>
+                            <Link to='' className={comicWording.navLinks}>Home</Link>
                         </SpeechBubble>
                         <SpeechBubble>
                             <Link to='/register' className={comicWording.navLinks}>Register</Link>
