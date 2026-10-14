@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import canonBurst from '../assets/canon-vibes-burst.svg';
 import herbie from '../assets/herbie.svg';
+import background1 from '../assets/canon-vibes-bg1.svg';
 import SpeechBubble from '../components/SpeechBubble.jsx';
+
 
 const LoginPage = () => {
     // 1) make two state variable with email and password 
@@ -68,6 +70,8 @@ const LoginPage = () => {
 
     const comicActions = {
         titleBurst: 'absolute inset-0 h-full w-full scale-125 object-contain',
+        backgroundText1: 'overflow-hidden inset-95 scale-50'
+
     };
 
     return (
@@ -77,9 +81,9 @@ const LoginPage = () => {
 
                     {/* top left panel, title of web application */}
                     <div className={comicPanels.topLeftPanel}>
-                    <img src={canonBurst} alt="" className={comicActions.titleBurst}/>
-                    <p className={comicWording.appTitle}>
-                        Canon Vibes</p>
+                        <img src={canonBurst} alt="" className={comicActions.titleBurst}/>
+                        <p className={comicWording.appTitle}>
+                            Canon Vibes</p>
                     </div>
 
                     {/* top right panel, navigation links*/}
@@ -151,6 +155,7 @@ const LoginPage = () => {
                     {/* bottom right panel, TBD*/}
                     <div className={comicPanels.bottomrRightPanel}>
                        <p className={comicWording.Labels}>Create your soundtrack cards!</p>
+                       <img src={background1} alt="Background" className={comicActions.backgroundText1}/>
                        <p className="mt-2 text-sm font-comic text-indigo-400">Try it out!</p>
                     </div>
 
