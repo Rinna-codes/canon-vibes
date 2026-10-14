@@ -144,17 +144,17 @@ const LoginPage = () => {
 
                     </div>
 
-                    {/* bottom left panel, TBD*/}
+                    {/* bottom left panel*/}
                     <div className={comicPanels.bottomLeftPanel}>
-                       {/* Context TBD */} 
+                       {/* Empty */} 
                     </div>
 
-                    {/* bottom middle panel, TBD*/}
+                    {/* bottom middle panel*/}
                     <div className={comicPanels.bottomMiddlePanel}>
-                       {/* Context TBD */} 
+                       {/* Empty */} 
                     </div>
 
-                    {/* bottom right panel, TBD*/}
+                    {/* bottom right panel*/}
                     <div className={comicPanels.bottomrRightPanel}>
 
                         <div className="relative h-full w-full">
@@ -167,7 +167,6 @@ const LoginPage = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
