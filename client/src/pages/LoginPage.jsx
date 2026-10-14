@@ -65,12 +65,14 @@ const LoginPage = () => {
         navLinks: 'text-5xl font-comic text-white hover:text-black',
         loginCard: 'relative z-10 bg-[#BDE0FE] rounded-lg border-5 border-black shadow-xl/50 px-8 py-',
         loginHeader: 'mb-6 my-3 text-center text-2xl font-comic text-black',
-        Labels: 'mb-1 text-lg font-comic text-black'
+        Labels: 'mb-1 text-lg font-comic text-black',
+        bannerHeader: '-rotate-5 font-comic text-3xl text-black',
+        bannerSubText: 'mt-2 text-sm -rotate-5 font-comic text-indigo-400'
     };
 
     const comicActions = {
         titleBurst: 'absolute inset-0 h-full w-full scale-125 object-contain',
-        backgroundText1: 'overflow-hidden inset-95 scale-50'
+        backgroundText1: 'absolute inset-0 h-full w-100 scale-160  object-contain'
 
     };
 
@@ -154,9 +156,16 @@ const LoginPage = () => {
 
                     {/* bottom right panel, TBD*/}
                     <div className={comicPanels.bottomrRightPanel}>
-                       <p className={comicWording.Labels}>Create your soundtrack cards!</p>
-                       <img src={background1} alt="Background" className={comicActions.backgroundText1}/>
-                       <p className="mt-2 text-sm font-comic text-indigo-400">Try it out!</p>
+
+                        <div className="relative h-full w-full">
+
+                            <img src={background1} alt="Background" className={comicActions.backgroundText1}/>
+
+                            <div className="relative z-10 flex h-full w-full flex-col items-center justify-center text-center">
+                                <p className={comicWording.bannerHeader}>Create your soundtrack cards!</p>
+                                <p className={comicWording.bannerSubText}>Try it out!</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
