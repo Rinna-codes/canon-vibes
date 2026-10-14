@@ -16,10 +16,11 @@ import CreateCardPage from './pages/CreateCardPage';
 function App() {
   return(
     <BrowserRouter>
+
+    {/*TO DO: Need to add navigation link for the Home Page and About Page*/}
       <Routes>
 
         {/* This makes the router to the user Login Page & Render Deployment */}
-        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<LoginPage />} />
 
         {/* This makes the router to the users DashboardPage */}
