@@ -37,15 +37,15 @@ const RegisterPage = () => {
     };
 
     const pageForm = {
-        webPageGrid: 'bg-white-900 py-12 sm:py-16',
+        webPageGrid: 'bg-white py-12 sm:py-5',
         panelContainer:'mx-auto max-w-7xl px-6 lg:px-8',
-        panelGrid: 'grid grid-cols-1 gap-6 lg:grid-cols-6'
+        panelGrid: 'grid grid-cols-1 gap-3 lg:grid-cols-6'
     };
 
     const comicPanels = {
         topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3',
         topRightPanel: 'flex min-h-45 flex-col items-center justify-center gap-4 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-10 sm:flex-row lg:col-span-3',
-        mainSection: 'flex flex-col lg:flex-row items-center rounded-lg bg-[#FFC8DD] border-5 border-black gap-20 px-8 py-10 sm:px-10 lg:col-span-6',
+        mainSection: 'flex flex-col lg:flex-row items-center rounded-lg bg-[#FFC8DD] border-5 border-black gap-20 px-8 py-5 sm:px-30 lg:col-span-6',
         bottomLeftPanel: 'min-h-40 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-8 lg:col-span-2',
         bottomMiddlePanel: 'min-h-40 rounded-lg bg-[#FFAFCC] border-5 border-black px-8 py-8 lg:col-span-2',
         bottomRightPanel: 'flex min-h-40 flex-col bg-[#BDE0FE] items-center justify-center rounded-lg border-5 border-black px-8 py-8 text-center lg:col-span-2'
@@ -54,11 +54,13 @@ const RegisterPage = () => {
 
     {/*TO DO: Need to edit the login designs to fit more for the registration card*/}
     const comicWording = {
-        appTitle: 'relative z-10 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
+        appTitle: 'relative z-10 -rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
         navLinks: 'text-5xl font-comic text-white hover:text-black',
-        loginCard: 'relative z-10 bg-[#BDE0FE] rounded-lg border-5 border-black shadow-xl/50 px-8 py-',
+        loginCard: 'relative z-10 bg-[#BDE0FE] rounded-[70px] border-5 border-black px-10 py-2',
         loginHeader: 'mb-6 my-3 text-center text-2xl font-comic text-black',
-        Labels: 'mb-1 text-lg font-comic text-black'
+        Labels: 'mb-1 text-lg font-comic text-black',
+        bannerHeader: '-rotate-5 font-comic text-lg text-black',
+        bannerSubText: 'mt-2 text-sm -rotate-3 font-comic text-indigo-400'
     };
 
     const comicActions = {
