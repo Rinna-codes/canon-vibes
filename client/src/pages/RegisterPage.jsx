@@ -52,7 +52,7 @@ const RegisterPage = () => {
     };
 
 
-    {/*TO DO: Need to edit the login designs to fit more for the registration card*/}
+    {/*TO DO: Need to rotate and adjust the Canon Vibes titles on the top left comic panel on registration page*/}
     const comicWording = {
         appTitle: 'relative z-10 -rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
         navLinks: 'text-5xl font-comic text-white hover:text-black',
