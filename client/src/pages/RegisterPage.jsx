@@ -54,7 +54,7 @@ const RegisterPage = () => {
 
     {/*TO DO: Need to rotate and adjust the Canon Vibes titles on the top left comic panel on registration page*/}
     const comicWording = {
-        appTitle: 'relative z-10 -rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
+        appTitle: 'relative z-10 rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
         navLinks: 'text-5xl font-comic text-white hover:text-black',
         registerCard: 'relative z-10 bg-[#BDE0FE] rounded-[70px] border-5 border-black px-10 py-2',
         registerHeader: 'mb-6 my-3 text-center text-2xl font-comic text-black',
@@ -79,11 +79,11 @@ const RegisterPage = () => {
                     {/* top right panel, navigation links */}
                     <div className={comicPanels.topRightPanel}>
                         <SpeechBubble>
-                            <Link to='/login' className={comicWording.navLinks}>Login</Link>
+                            <Link to='' className={comicWording.navLinks}>Home</Link>
                         </SpeechBubble>
 
                         <SpeechBubble>
-                            <Link to='' className={comicWording.navLinks}>Home</Link>
+                            <Link to='/login' className={comicWording.navLinks}>Login</Link>
                         </SpeechBubble>
 
                         <SpeechBubble>
