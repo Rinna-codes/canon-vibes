@@ -21,6 +21,8 @@ function App() {
       <Routes>
 
         {/* This makes the router to the user Login Page & Render Deployment */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        
         <Route path="/login" element={<LoginPage />} />
 
         {/* This makes the router to the users DashboardPage */}
