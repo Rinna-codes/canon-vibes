@@ -20,9 +20,10 @@ function App() {
     {/*TO DO: Need to add navigation link for the Home Page and About Page*/}
       <Routes>
 
-        {/* This makes the router to the user Login Page & Render Deployment */}
+        {/* Need this route to redirect to the login page by default, for render deployment. Planning to change when Home page is set up. */}
         <Route path="/" element={<Navigate to="/login" replace />} />
-        
+
+        {/* This makes the router to the user Login Page & Render Deployment */}
         <Route path="/login" element={<LoginPage />} />
 
         {/* This makes the router to the users DashboardPage */}
