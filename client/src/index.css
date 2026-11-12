@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-comic: "Bangers", system-ui, sans-serif;
+  --font-comic: "Bangers", system-ui;
+  --font-weight-comic: 400;
+  --font-style-comic: normal;
 }

@@ -141,31 +141,6 @@ const LoginPage = () => {
                         <div className='flex flex-col items-center justify-center'>
                             <img src={herbie} alt="Herbie" className="mx-auto my-4 h-50 w-50"/>
                         </div>
-
-                    </div>
-
-                    {/* bottom left panel*/}
-                    <div className={comicPanels.bottomLeftPanel}>
-                       {/* Empty */} 
-                    </div>
-
-                    {/* bottom middle panel*/}
-                    <div className={comicPanels.bottomMiddlePanel}>
-                       {/* Empty */} 
-                    </div>
-
-                    {/* bottom right panel*/}
-                    <div className={comicPanels.bottomrRightPanel}>
-
-                        <div className="relative h-full w-full">
-
-                            <img src={background1} alt="Background" className={comicActions.backgroundText1}/>
-
-                            <div className="relative z-10 flex h-full w-full flex-col items-center justify-center text-center">
-                                <p className={`absolute left-[14%] top-[30%] w-[62%] ${comicWording.bannerHeader}`}>Create your soundtrack cards!</p>
-                                <p className={`absolute left-[48%] top-[88%] -translate-x-1/2 ${comicWording.bannerSubText}`}>Try it out!</p> 
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
