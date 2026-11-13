@@ -188,6 +188,16 @@ const LoginPage = () => {
                         <img src={herbie} alt='Herbie' className='h-50 w-50'/>
                     </div>
 
+                    {/* footer strip */}
+                    <footer className={comicPanels.footerPanel}>
+                        <p className='font-sans text-black'>© 2026 Canon Vibes</p>
+                        <nav className='flex gap-6 font-sans font-bold text-black'>
+                            <Link to='/' className='underline'>About</Link>
+                            <Link to='/' className='underline'>Privacy</Link>
+                            <Link to='/' className='underline'>Contact</Link>
+                        </nav>
+                    </footer>
+
                 </div>
             </div>
         </div>
