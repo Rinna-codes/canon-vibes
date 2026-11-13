@@ -25,6 +25,14 @@ const LoginPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
+        
+        // save email in local storage if remember is checked by user
+        if (remember) {
+            localStorage.setItem('email', email);
+        } else {
+            localStorage.removeItem('email');
+        }
 
         try {
             const response = await fetch('/api/auth/login', {
@@ -46,6 +54,7 @@ const LoginPage = () => {
             
         } catch (error) {
             console.error('Error', error);
+            setError('Wrong email or password for login. Please try again');
         }
     };
 
@@ -59,23 +68,27 @@ const LoginPage = () => {
     const comicPanels = {
         topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3',
         topRightPanel: 'flex min-h-45 flex-col items-center justify-center gap-4 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-10 sm:flex-row lg:col-span-3',
-        mainLeftSection: 'flex flex-col lg:flex-row rounded-lg bg-[#A2D2FF] border-5 border-black p-8 lg:col-span-3',
-        mainRightSection: 'flex flex-col items-center justify-center gap-6 rounded-lg bg-[#FFC8DD] border-5 border-black p-8 lg:col-span-3'
+        mainLeftSection: 'flex flex-col justify-center rounded-[28px] bg-[#A2D2FF] border-5 border-black shadow-[3px_3px_0_#111] p-9 lg:col-span-3',
+        mainRightSection: 'flex flex-col items-center justify-center gap-8 rounded-lg bg-[#FFC8DD] border-5 border-black lg:col-span-3',
+        footerPanel: 'flex flex-col items-center justify-between gap-3 rounded-lg bg-[#BDE0FE] border-5 border-black px-8 py-5 sm:flex-row lg:col-span-6'
     };
     
     const comicWording = {
         appTitle: 'relative z-10 -rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
         navLinks: 'text-5xl font-comic text-white hover:text-black',
-        loginHeader: 'mb-6 my-3 text-center text-2xl font-comic text-black',
-        Labels: 'mb-1 text-lg font-comic text-black',
-        bannerHeader: '-rotate-5 font-comic text-lg text-black',
-        bannerSubText: 'mt-2 text-sm -rotate-3 font-comic text-indigo-400'
+        loginHeader: 'mb-6 my-3 text-5xl font-comic text-black',
+        Labels: 'mb-1 block font-sans font-bold text-base font-bold text-black',
+        subText: 'mt-1 mb-8 font-sans text-base text-black/80',
     };
 
-    const comicActions = {
+    const formStyles = {
         titleBurst: 'absolute inset-0 h-full w-full scale-125 object-contain',
-        backgroundText1: 'absolute inset-0 h-full w-100 scale-160  object-contain'
-
+        input: 'h-12 w-full rounded-2xl border-4 border-black px-4 font-comic text-black bg-white focus:outline-4 focus:outline-[#F7E96B] focus:shadow-[2px_2px_0_#111]',
+        showButton: 'absolute right-2 top-1/2 -translate-y-1/2 rounded-lg border-3 border-black bg-[#CDB4DB] px-3 py-1 font-comic text-sm text-black hover:bg-black hover:text-white',
+        primaryButton: 'w-full rounded-2xl border-4 border-black bg-[#F7E96B] py-3 font-comic text-3xl tracking-wide text-black shadow-[4px_4px_0_#111] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none',
+        checkBox: 'h-6 w-6 accent-black',
+        link: 'font-comic font-bold text-black underline hover:text-white',
+        error: 'mb-6 rounded-lg border-4 border-black bg-white px-4 py-2 font-comic font-bold text-red-700',
     };
 
     return (
@@ -85,7 +98,7 @@ const LoginPage = () => {
 
                     {/* top left panel, title of web application */}
                     <div className={comicPanels.topLeftPanel}>
-                        <img src={canonBurst} alt="" className={comicActions.titleBurst}/>
+                        <img src={canonBurst} alt="" className={formStyles.titleBurst}/>
                         <p className={comicWording.appTitle}>
                             Canon Vibes</p>
                     </div>
@@ -105,37 +118,64 @@ const LoginPage = () => {
                     
                     {/* largest, main left panel, login form */}
                     <div className={comicPanels.mainLeftSection}>
-                        <h2 className={comicWording.loginHeader}>Welcome Back!</h2>
-                            <form onSubmit={handleSubmit} className='w-full max-w-sm'>
+                        <h1 className={comicWording.loginHeader}>Welcome Back!</h1>
+                        <p className={comicWording.subText}>Log in to your Canon Vibes account</p> 
+
+                           <form onSubmit={handleSubmit} className='w-full'>
+                                {error && <p role='alert' className={formStyles.error}>OOPS! {error}</p>}
 
                                 <div className='mb-6'>
-                                    <label htmlFor='email' className={comicWording.Labels}>Email</label>
+                                    <label htmlFor='email' className={formStyles.Labels}>Email</label>
                                     <input
                                     id='email'
                                     type='email'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'/>
+                                    className={formStyles.input}/>
                                 </div>
                                 
                                 <div className='mb-6'>
-                                    <label htmlFor='password' className={comicWording.Labels}>Password</label>
-                                    <input
-                                    id='password'
-                                    type='password'
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'/>
+                                    <label htmlFor='password' className={formStyles.Labels}>Password</label>
+                                    <div className='relative'>
+                                        <input
+                                            id='password'
+                                            type={showPassword ? 'text' : 'password'}
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            className={`${formStyles.input} pr-24`}/>
+                                        <button
+                                            type='button'
+                                            onClick={() => setShowPassword(!showPassword)}
+                                            className={formStyles.showButton}>
+                                            {showPassword ? 'Hide' : 'Show'}
+                                        </button>
+                                    </div>
                                 </div>
 
-                                {/* TO DO: implement the forgot password functionality later */}
-                                <Link to='/' className={comicWording.Labels}>Forgot Password? Click Here!</Link>
+                                <div className='mb-8 flex items-center justify-between'>
+                                    <label htmlFor='remember' className='flex items-center gap-3 font-sans text-black'>
+                                        <input
+                                            id='remember'
+                                            type='checkbox'
+                                            checked={remember}
+                                            onChange={(e) => setRemember(e.target.checked)}
+                                            className={formStyles.checkbox}/>
+                                        Remember me
+                                    </label>
+
+                                    {/* TO DO: implement the forgot password functionality later */}
+                                    <Link to='/' className={comicWording.Labels}>Forgot Password? Click Here!</Link>
+                                </div>
 
                                 <div className='mt-6 my-3 flex justify-center'>
                                     <button
                                     type='submit'
-                                    className='rounded-full bg-[#CDB4DB] px-6 py-2 text-sm font-comic text-black hover:text-white hover:bg-black'>Submit</button>
+                                    className={formStyles.primaryButton}>Log in</button>
                                 </div>
+
+                                <p className='mt-6 text-center font-sans text-black'>
+                                    New here? <Link to='/register' className={formStyles.link}>Create an account</Link>
+                                </p>
                             </form>
                     </div>
 
