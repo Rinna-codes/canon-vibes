@@ -179,11 +179,13 @@ const LoginPage = () => {
                             </form>
                     </div>
 
-                    {/*largest, main right panel*/}
+                    {/* main right panel: mascot */}
                     <div className={comicPanels.mainRightSection}>
-                        <div className='flex flex-col items-center justify-center'>
-                            <img src={herbie} alt="Herbie" className="mx-auto my-4 h-50 w-50"/>
-                        </div>
+                        <SpeechBubble>
+                            <p className='font-comic text-4xl text-black'>Welcome back!</p>
+                            <p className='font-sans text-sm text-black'>Log in to jump back into your universe.</p>
+                        </SpeechBubble>
+                        <img src={herbie} alt='Herbie' className='h-50 w-50'/>
                     </div>
 
                 </div>
