@@ -180,6 +180,7 @@ const LoginPage = () => {
                     </div>
 
                     {/* main right panel: Herbie */}
+                    {/*TODO: Change/replace the SVG of Herbie to the given one on final Figma Design*/}
                     <div className={comicPanels.mainRightSection}>
                         <SpeechBubble>
                             <p className='font-comic text-4xl text-black'>Welcome back!</p>
