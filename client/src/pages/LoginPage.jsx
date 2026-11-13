@@ -179,7 +179,7 @@ const LoginPage = () => {
                             </form>
                     </div>
 
-                    {/* main right panel: mascot */}
+                    {/* main right panel: Herbie */}
                     <div className={comicPanels.mainRightSection}>
                         <SpeechBubble>
                             <p className='font-comic text-4xl text-black'>Welcome back!</p>
@@ -188,7 +188,7 @@ const LoginPage = () => {
                         <img src={herbie} alt='Herbie' className='h-50 w-50'/>
                     </div>
 
-                    {/* footer strip */}
+                    {/* footer panel */}
                     <footer className={comicPanels.footerPanel}>
                         <p className='font-sans text-black'>© 2026 Canon Vibes</p>
                         <nav className='flex gap-6 font-sans font-bold text-black'>
