@@ -14,9 +14,14 @@ const LoginPage = () => {
         // 5) save the token into storage
         // 6) navigate client to dashboard page
 
+    
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const [showPassword, setShowPassword] = useState(false);
+    const [remember, setRemember] = useState(false);
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
