@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import canonBurst from '../assets/canon-vibes-burst.svg';
-import herbie from '../assets/herbie.svg';
+import herbie from '../assets/herbieHead.svg';
 import background1 from '../assets/canon-vibes-bg1.svg';
 import SpeechBubble from '../components/SpeechBubble.jsx';
 
@@ -186,7 +186,7 @@ const LoginPage = () => {
                             <p className='font-comic text-4xl text-black'>Welcome back!</p>
                             <p className='font-sans text-sm text-black'>Log in to jump back into your universe.</p>
                         </SpeechBubble>
-                        <img src={herbie} alt='Herbie' className='h-50 w-50'/>
+                        <img src={herbie} alt='Herbie' className='h-80 w-80'/>
                     </div>
 
                     {/* footer panel */}
