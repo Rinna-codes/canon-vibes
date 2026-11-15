@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import canonBurst from '../assets/canon-vibes-burst.svg';
 import herbie from '../assets/herbieHead.svg';
-import background1 from '../assets/canon-vibes-bg1.svg';
 import SpeechBubble from '../components/SpeechBubble.jsx';
 
 
@@ -75,7 +74,8 @@ const LoginPage = () => {
     
     const comicWording = {
         appTitle: 'relative z-10 -rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
-        navLinks: 'text-5xl font-comic text-white hover:text-black',
+        navLinks: 'text-5xl font-comic text-white transition-colors group-hover:text-black group-focus-within:text-black after:absolute after:inset-0 after:content-[""]',
+        navLinksHover: 'group relative transition duration-200 ease-out motion-safe:hover:transition-y-1 motion-safe:hover:scale-110 motion-safe:focus-within:scale-110 motion-safe:active:scale-95',
         loginHeader: 'mb-6 my-3 text-5xl font-comic text-black',
         Labels: 'mb-1 block font-sans font-bold text-base font-bold text-black',
         subText: 'mt-1 mb-8 font-sans text-base text-black/80',
@@ -125,7 +125,7 @@ const LoginPage = () => {
                                 {error && <p role='alert' className={formStyles.error}>OOPS! {error}</p>}
 
                                 <div className='mb-6'>
-                                    <label htmlFor='email' className={formStyles.Labels}>Email</label>
+                                    <label htmlFor='email' className={comicWording.Labels}>Email</label>
                                     <input
                                     id='email'
                                     type='email'
@@ -135,7 +135,7 @@ const LoginPage = () => {
                                 </div>
                                 
                                 <div className='mb-6'>
-                                    <label htmlFor='password' className={formStyles.Labels}>Password</label>
+                                    <label htmlFor='password' className={comicWording.Labels}>Password</label>
                                     <div className='relative'>
                                         <input
                                             id='password'
@@ -159,7 +159,7 @@ const LoginPage = () => {
                                             type='checkbox'
                                             checked={remember}
                                             onChange={(e) => setRemember(e.target.checked)}
-                                            className={formStyles.checkbox}/>
+                                            className={formStyles.checkBox}/>
                                         Remember me
                                     </label>
 
@@ -180,7 +180,6 @@ const LoginPage = () => {
                     </div>
 
                     {/* main right panel: Herbie */}
-                    {/*TODO: Change/replace the SVG of Herbie to the given one on final Figma Design*/}
                     <div className={comicPanels.mainRightSection}>
                         <SpeechBubble>
                             <p className='font-comic text-4xl text-black'>Welcome back!</p>
