@@ -79,6 +79,7 @@ const LoginPage = () => {
     
     const comicWording = {
         appTitle: 'relative z-10 -rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
+        // TODO: Change the names for navLinks and navLinksHover for more suitable names (less confusing)
         navLinks: 'text-5xl font-comic text-white transition-colors group-hover:text-black group-focus-within:text-black after:absolute after:inset-0 after:content-[""]',
         navLinksHover: 'group relative transition duration-200 ease-out motion-safe:hover:transition-y-1 motion-safe:hover:scale-110 motion-safe:focus-within:scale-110 motion-safe:active:scale-95',
         loginHeader: 'mb-6 my-3 text-5xl font-comic text-black',
@@ -109,6 +110,7 @@ const LoginPage = () => {
                     </div>
 
                     {/* top right panel, navigation header*/}
+                    {/*TODO: Change the names to be less confusing (navLinks and navLinksHover)*/}
                     <div className={comicPanels.topRightPanel}>
                         {navItems.map((x) => (
                             <div key={x.Label} className={comicWording.navLinksHover}>
