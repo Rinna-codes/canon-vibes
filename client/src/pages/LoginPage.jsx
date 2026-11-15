@@ -4,6 +4,11 @@ import canonBurst from '../assets/canon-vibes-burst.svg';
 import herbie from '../assets/herbieHead.svg';
 import SpeechBubble from '../components/SpeechBubble.jsx';
 
+const navItems = [
+    {Label: "Home", to: "/"},
+    {Label: "Register", to: "/register"},
+    {Label: "About", to: "/"},
+]
 
 const LoginPage = () => {
     // 1) make two state variable with email and password 
@@ -103,17 +108,17 @@ const LoginPage = () => {
                             Canon Vibes</p>
                     </div>
 
-                    {/* top right panel, navigation links*/}
+                    {/* top right panel, navigation header*/}
                     <div className={comicPanels.topRightPanel}>
-                        <SpeechBubble>
-                            <Link to='' className={comicWording.navLinks}>Home</Link>
-                        </SpeechBubble>
-                        <SpeechBubble>
-                            <Link to='/register' className={comicWording.navLinks}>Register</Link>
-                        </SpeechBubble>
-                        <SpeechBubble>
-                            <Link to='' className={comicWording.navLinks}>About</Link>
-                        </SpeechBubble>
+                        {navItems.map((x) => (
+                            <div key={x.Label} className={comicWording.navLinksHover}>
+                                <SpeechBubble>
+                                    <Link to={x.to} className={comicWording.navLinks}>
+                                        {x.Label}
+                                    </Link>
+                                </SpeechBubble>
+                            </div>
+                        ))}
                     </div>
                     
                     {/* largest, main left panel, login form */}
