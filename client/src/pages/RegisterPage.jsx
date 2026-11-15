@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import canonBurst from '../assets/canon-vibes-burst.svg';
 import SpeechBubble from '../components/SpeechBubble.jsx';
+import happyHerbie from '../assets/herbieHappy.svg';
 
 const RegisterPage = () => {
     // declare the email and password with useState and useNavigate
@@ -45,14 +46,11 @@ const RegisterPage = () => {
     const comicPanels = {
         topLeftPanel: 'relative flex min-h-45 flex-col items-center justify-center rounded-lg bg-[#CDB4DB] border-5 border-black px-8 py-10 lg:col-span-3',
         topRightPanel: 'flex min-h-45 flex-col items-center justify-center gap-4 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-10 sm:flex-row lg:col-span-3',
-        mainSection: 'flex flex-col lg:flex-row items-center rounded-lg bg-[#FFC8DD] border-5 border-black gap-20 px-8 py-5 sm:px-30 lg:col-span-6',
-        bottomLeftPanel: 'min-h-40 rounded-lg bg-[#A2D2FF] border-5 border-black px-8 py-8 lg:col-span-2',
-        bottomMiddlePanel: 'min-h-40 rounded-lg bg-[#FFAFCC] border-5 border-black px-8 py-8 lg:col-span-2',
-        bottomRightPanel: 'flex min-h-40 flex-col bg-[#BDE0FE] items-center justify-center rounded-lg border-5 border-black px-8 py-8 text-center lg:col-span-2'
+        mainLeftSection: 'flex flex-col justify-center rounded-[28px] bg-[#A2D2FF] border-5 border-black shadow-[3px_3px_0_#111] p-9 lg:col-span-3',
+        mainRightSection: 'flex flex-col items-center justify-center gap-8 rounded-lg bg-[#FFC8DD] border-5 border-black lg:col-span-3',
     };
 
 
-    {/*TO DO: Need to rotate and adjust the Canon Vibes titles on the top left comic panel on registration page*/}
     const comicWording = {
         appTitle: 'relative z-10 rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
         navLinks: 'text-5xl font-comic text-white hover:text-black',
@@ -91,8 +89,8 @@ const RegisterPage = () => {
                         </SpeechBubble>
                     </div>
 
-                    {/* main section, registration card form */}
-                    <div className={comicPanels.mainSection}>
+                    {/* main left section, registration card form */}
+                    <div className={comicPanels.mainLeftSection}>
                         <div className={comicWording.registerCard}>
 
                             <h2 className={comicWording.registerHeader}>Create an Account!</h2>
@@ -141,19 +139,12 @@ const RegisterPage = () => {
                         </div>
                     </div>
 
-                    {/* bottom left panel */}
-                    <div className={comicPanels.bottomLeftPanel}>
-                        {/*TO DO: Fill out the rest of the design for the bottom comic panel*/}
-                    </div>
-
-                    {/* bottom middle panel */}
-                    <div className={comicPanels.bottomMiddlePanel}>
-                        {/*TO DO: Fill out the rest of the design for the bottom comic panel*/}
-                    </div>
-
-                    {/* bottom right panel */}
-                    <div className={comicPanels.bottomRightPanel}>
-                        {/*TO DO: Fill out the rest of the design for the bottom comic panel*/}
+                    <div className={comicPanels.mainRightSection}>
+                        <SpeechBubble>
+                            <p className='font-comic text-4xl text-black'>Welcome back!</p>
+                            <p className='font-sans text-sm text-black'>Log in to jump back into your universe.</p>
+                        </SpeechBubble>
+                        <img src={happyHerbie} alt='Herbie' className='h-80 w-80'/>
                     </div>
 
                 </div>
