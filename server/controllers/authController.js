@@ -20,12 +20,12 @@ const registerUser = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10); // hash the password with 10 salt rounds
-        const saveNewUser = await User.create({username: username, email: email, password: hashedPassword});
+        await User.create({username: username, email: email, password: hashedPassword}); // removed variable name newSaveUser, temporarily
 
         res.status(201).json({message: 'New Soundtrack Card User Created!'});
     } catch (err) {
         console.error(err); 
-        res.status(500).json({message:"Whoops! Something went wrong with registering 😱"});
+        res.status(500).json({error:"Whoops! Something went wrong with registering 😱"});
     }
 };
 

@@ -13,8 +13,13 @@ const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    // TODO: add error handling for registration form under the handleSubmit function
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
 
         try {
             const response = await fetch('/api/auth/register', {
@@ -29,11 +34,14 @@ const RegisterPage = () => {
                 throw new Error('Registering Log in failed')
             }
 
-            const data = await response.json();
-            navigate('/login');
+            setSuccess('Account created! Redirecting to login...');
+
+            // Let the user see a success registeration message before going to the login page
+            setTimeout(() => navigate('/login'), 5000);
             
         } catch (error) {
             console.error('Error', error);
+            setError('Registration failed. Please try again.');
         }
     };
 
@@ -91,58 +99,55 @@ const RegisterPage = () => {
 
                     {/* main left section, registration card form */}
                     <div className={comicPanels.mainLeftSection}>
-                        <div className={comicWording.registerCard}>
+                        <h2 className={comicWording.registerHeader}>Create an account!</h2>
+                        
+                        {/*TODO: Change the color of the text to something visually better*/}
+                        {success && <p className="text-green-600">{success}</p>}
 
-                            <h2 className={comicWording.registerHeader}>Create an Account!</h2>
-                            <form onSubmit={handleSubmit} className='w-full max-w-sm'>
+                        <div className='mb-6'>
+                            <label htmlFor='username' className={comicWording.Labels}>Username</label>
+                            <input
+                                id='username'
+                                type='username'
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'
+                            />
+                        </div>
 
-                                <div className='mb-6'>
-                                    <label htmlFor='username' className={comicWording.Labels}>Username</label>
-                                    <input
-                                        id='username'
-                                        type='username'
-                                        value={username}
-                                        onChnage={(e) => setUsername(e.target.value)}
-                                        className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'
-                                    />
-                                </div>
+                        <div className='mb-6'>
+                            <label htmlFor='email' className={comicWording.Labels}>Email</label>
+                            <input
+                                id='email'
+                                type='email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'
+                            />
+                        </div>
 
-                                <div className='mb-6'>
-                                    <label htmlFor='email' className={comicWording.Labels}>Email</label>
-                                    <input
-                                        id='email'
-                                        type='email'
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'
-                                    />
-                                </div>
+                        <div className='mb-6'>
+                            <label htmlFor='password' className={comicWording.Labels}>Password</label>
+                            <input
+                                id='password'
+                                type='password'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'
+                            />
+                        </div>
 
-                                <div className='mb-6'>
-                                    <label htmlFor='password' className={comicWording.Labels}>Password</label>
-                                    <input
-                                        id='password'
-                                        type='password'
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'
-                                    />
-                                </div>
-
-                                <div className='mt-6 my-3 flex justify-center'>
-                                    <button
-                                    type='submit'
-                                    className='rounded-full bg-[#CDB4DB] px-6 py-2 text-sm font-comic text-black hover:text-white hover:bg-black'>Register</button>
-                                </div>
-                            </form>
-
+                        <div className='mt-6 my-3 flex justify-center'>
+                            <button
+                            type='submit'
+                            className='rounded-full bg-[#CDB4DB] px-6 py-2 text-sm font-comic text-black hover:text-white hover:bg-black'>Register</button>
                         </div>
                     </div>
 
                     <div className={comicPanels.mainRightSection}>
                         <SpeechBubble>
-                            <p className='font-comic text-4xl text-black'>Welcome back!</p>
-                            <p className='font-sans text-sm text-black'>Log in to jump back into your universe.</p>
+                            <p className='font-comic text-4xl text-black'>Join the crew!</p>
+                            <p className='font-sans text-sm text-black'>Make an account and start creating your cards!</p>
                         </SpeechBubble>
                         <img src={happyHerbie} alt='Herbie' className='h-80 w-80'/>
                     </div>
