@@ -12,7 +12,10 @@ const RegisterPage = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    
+    const [confirmPassword, setConfirmPassword] = useState(''); // A new state for the confirm password input field
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -75,6 +78,7 @@ const RegisterPage = () => {
     const formStyles = {
         titleBurst: 'absolute inset-0 rotate-15 h-full w-full scale-125 object-contain',
         input: 'h-12 w-full rounded-2xl border-4 border-black px-4 font-sans text-black bg-white focus:outline-4 focus:outline-[#F7E96B] focus:shadow-[2px_2px_0_#111]',
+        showButton: 'absolute right-2 top-1/2 -translate-y-1/2 rounded-lg border-3 border-black bg-[#CDB4DB] px-3 py-1 font-comic text-sm text-black hover:bg-[#F7E96B] hover:text-black',
         error: 'mb-6 rounded-lg border-4 border-black bg-white px-4 py-2 font-comic font-bold text-red-700',
         success: 'mb-6 rounded-lg border-4 border-black bg-[#F7E96B] px-4 py-2 font-comic font-bold text-green',
     };
@@ -139,24 +143,40 @@ const RegisterPage = () => {
 
                             <div className='mb-6'>
                                 <label htmlFor='password' className={comicWording.Labels}>Password</label>
-                                <input
-                                    id='password'
-                                    type='password'
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className={formStyles.input}
-                                />
+                                <div className='relative'>
+                                    <input
+                                        id='password'
+                                        type={showPassword ? 'text' : 'password'}
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className={`${formStyles.input} pr-24`}
+                                    />
+                                    <button
+                                        type='button'
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className={formStyles.showButton}>
+                                        {showPassword ? 'Hide' : 'Show'}
+                                    </button>
+                                </div>
                             </div>
 
                             <div className='mb-6'>
                                 <label htmlFor='confirmPassword' className={comicWording.Labels}>Confirm Password</label>
-                                <input
-                                    id='confirmPassword'
-                                    type='password'
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                    className={formStyles.input}
-                                />
+                                <div className='relative'>
+                                    <input
+                                        id='confirmPassword'
+                                        type={showConfirm ? 'text' : 'password'}
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        className={`${formStyles.input} pr-24`}
+                                    />
+                                    <button
+                                        type='button'
+                                        onClick={() => setShowConfirm(!showConfirm)}
+                                        className={formStyles.showButton}>
+                                        {showConfirm ? 'Hide' : 'Show'}
+                                    </button>
+                                </div>
                             </div>
 
                             {/*TODO: Change the register button to match the Figma design */}
