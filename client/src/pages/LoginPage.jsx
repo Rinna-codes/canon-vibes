@@ -127,62 +127,62 @@ const LoginPage = () => {
                         <h1 className={comicWording.loginHeader}>Welcome Back!</h1>
                         <p className={comicWording.subText}>Log in to your Canon Vibes account</p> 
 
-                           <form onSubmit={handleSubmit} className='w-full'>
-                                {error && <p role='alert' className={formStyles.error}>OOPS! {error}</p>}
+                        <form onSubmit={handleSubmit} className='w-full'>
+                            {error && <p role='alert' className={formStyles.error}>OOPS! {error}</p>}
 
-                                <div className='mb-6'>
-                                    <label htmlFor='email' className={comicWording.Labels}>Email</label>
+                            <div className='mb-6'>
+                                <label htmlFor='email' className={comicWording.Labels}>Email</label>
+                                <input
+                                id='email'
+                                type='email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className={formStyles.input}/>
+                            </div>
+                            
+                            <div className='mb-6'>
+                                <label htmlFor='password' className={comicWording.Labels}>Password</label>
+                                <div className='relative'>
                                     <input
-                                    id='email'
-                                    type='email'
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className={formStyles.input}/>
-                                </div>
-                                
-                                <div className='mb-6'>
-                                    <label htmlFor='password' className={comicWording.Labels}>Password</label>
-                                    <div className='relative'>
-                                        <input
-                                            id='password'
-                                            type={showPassword ? 'text' : 'password'}
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            className={`${formStyles.input} pr-24`}/>
-                                        <button
-                                            type='button'
-                                            onClick={() => setShowPassword(!showPassword)}
-                                            className={formStyles.showButton}>
-                                            {showPassword ? 'Hide' : 'Show'}
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div className='mb-8 flex items-center justify-between'>
-                                    <label htmlFor='remember' className='flex items-center gap-3 font-sans text-black'>
-                                        <input
-                                            id='remember'
-                                            type='checkbox'
-                                            checked={remember}
-                                            onChange={(e) => setRemember(e.target.checked)}
-                                            className={formStyles.checkBox}/>
-                                        Remember me
-                                    </label>
-
-                                    {/* TO DO: implement the forgot password functionality later */}
-                                    <Link to='/' className={comicWording.Labels}>Forgot Password? Click Here!</Link>
-                                </div>
-
-                                <div className='mt-6 my-3 flex justify-center'>
+                                        id='password'
+                                        type={showPassword ? 'text' : 'password'}
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className={`${formStyles.input} pr-24`}/>
                                     <button
-                                    type='submit'
-                                    className={formStyles.primaryButton}>Log in</button>
+                                        type='button'
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className={formStyles.showButton}>
+                                        {showPassword ? 'Hide' : 'Show'}
+                                    </button>
                                 </div>
+                            </div>
 
-                                <p className='mt-6 text-center font-sans text-black'>
-                                    New here? <Link to='/register' className={formStyles.link}>Create an account</Link>
-                                </p>
-                            </form>
+                            <div className='mb-8 flex items-center justify-between'>
+                                <label htmlFor='remember' className='flex items-center gap-3 font-sans text-black'>
+                                    <input
+                                        id='remember'
+                                        type='checkbox'
+                                        checked={remember}
+                                        onChange={(e) => setRemember(e.target.checked)}
+                                        className={formStyles.checkBox}/>
+                                    Remember me
+                                </label>
+
+                                {/* TO DO: implement the forgot password functionality later */}
+                                <Link to='/' className={comicWording.Labels}>Forgot Password? Click Here!</Link>
+                            </div>
+
+                            <div className='mt-6 my-3 flex justify-center'>
+                                <button
+                                type='submit'
+                                className={formStyles.primaryButton}>Log in</button>
+                            </div>
+
+                            <p className='mt-6 text-center font-sans text-black'>
+                                New here? <Link to='/register' className={formStyles.link}>Create an account</Link>
+                            </p>
+                        </form>
                     </div>
 
                     {/* main right panel: Herbie */}
