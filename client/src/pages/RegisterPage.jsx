@@ -34,7 +34,7 @@ const RegisterPage = () => {
                 throw new Error('Registering Log in failed')
             }
 
-            setSuccess('Account created! Redirecting to login...');
+            setSuccess('Account created! Redirecting to login page...');
 
             // Let the user see a success registeration message before going to the login page
             setTimeout(() => navigate('/login'), 5000);
@@ -61,14 +61,14 @@ const RegisterPage = () => {
 
     const comicWording = {
         appTitle: 'relative z-10 rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
-        navLinks: 'text-5xl font-comic text-white hover:text-black',
-        registerCard: 'relative z-10 bg-[#BDE0FE] rounded-[70px] border-5 border-black px-10 py-2',
-        registerHeader: 'mb-6 my-3 text-center text-2xl font-comic text-black',
-        Labels: 'mb-1 text-lg font-comic text-black'    
+        registerHeader: 'mb-6 my-3 text-5xl font-comic text-black',
+        Labels: 'mb-1 block font-sans font-bold text-base text-black',
+        subText: 'mt-1 mb-8 font-sans text-base text-black/80',    
     };
 
-    const comicActions = {
+    const formStyles = {
         titleBurst: 'absolute inset-0 rotate-15 h-full w-full scale-125 object-contain',
+        input: 'h-12 w-full rounded-2xl border-4 border-black px-4 font-sans text-black bg-white focus:outline-4 focus:outline-[#F7E96B] focus:shadow-[2px_2px_0_#111]',
     };
 
     return (
@@ -78,11 +78,12 @@ const RegisterPage = () => {
                     
                     {/* top left panel, Canon Vibes titles */}
                     <div className={comicPanels.topLeftPanel}>
-                        <img src={canonBurst} alt="Canon Vibes Burst" className={comicActions.titleBurst}/>
+                        <img src={canonBurst} alt="Canon Vibes Burst" className={formStyles.titleBurst}/>
                         <p className={comicWording.appTitle}>Canon Vibes</p>
                     </div>
 
                     {/* top right panel, navigation links */}
+                    {/*TODO: Add hover effects/animation for the navigation speech bubbles*/}
                     <div className={comicPanels.topRightPanel}>
                         <SpeechBubble>
                             <Link to='' className={comicWording.navLinks}>Home</Link>
@@ -100,7 +101,8 @@ const RegisterPage = () => {
                     {/* main left section, registration card form */}
                     <div className={comicPanels.mainLeftSection}>
                         <h2 className={comicWording.registerHeader}>Create an account!</h2>
-                        
+                        <p className={comicWording.subText}>It takes less than a minute.</p>
+
                         {/*TODO: Change the color of the text to something visually better*/}
                         {success && <p className="text-green-600">{success}</p>}
 
@@ -111,7 +113,7 @@ const RegisterPage = () => {
                                 type='username'
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
-                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'
+                                className={formStyles.input}
                             />
                         </div>
 
@@ -122,7 +124,7 @@ const RegisterPage = () => {
                                 type='email'
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'
+                                className={formStyles.input}
                             />
                         </div>
 
@@ -133,7 +135,7 @@ const RegisterPage = () => {
                                 type='password'
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className='h-10 w-full rounded-md bg-white px-3 text-gray-900 focus:outline-2 focus:outline-indigo-500'
+                                className={formStyles.input}
                             />
                         </div>
 
