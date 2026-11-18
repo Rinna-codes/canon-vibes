@@ -90,7 +90,7 @@ const LoginPage = () => {
         titleBurst: 'absolute inset-0 h-full w-full scale-125 object-contain',
         input: 'h-12 w-full rounded-2xl border-4 border-black px-4 font-sans text-black bg-white focus:outline-4 focus:outline-[#F7E96B] focus:shadow-[2px_2px_0_#111]',
         showButton: 'absolute right-2 top-1/2 -translate-y-1/2 rounded-lg border-3 border-black bg-[#CDB4DB] px-3 py-1 font-comic text-sm text-black hover:bg-[#F7E96B] hover:text-black',
-        primaryButton: 'w-full rounded-2xl border-4 border-black bg-[#F7E96B] py-3 font-comic text-3xl tracking-wide text-black shadow-[4px_4px_0_#111] transition hover:-translate-y-2 active:translate-y-2 active:shadow-none',
+        loginButton: 'w-full rounded-2xl border-4 border-black bg-[#F7E96B] py-3 font-comic text-3xl tracking-wide text-black shadow-[4px_4px_0_#111] transition hover:-translate-y-2 active:translate-y-2 active:shadow-none',
         checkBox: 'h-6 w-6 accent-black',
         link: 'font-comic font-bold text-black underline hover:text-white',
         error: 'mb-6 rounded-lg border-4 border-black bg-white px-4 py-2 font-comic font-bold text-red-700',
@@ -175,7 +175,7 @@ const LoginPage = () => {
                             <div className='mt-6 my-3 flex justify-center'>
                                 <button
                                 type='submit'
-                                className={formStyles.primaryButton}>Log in</button>
+                                className={formStyles.loginButton}>Log in</button>
                             </div>
 
                             <p className='mt-6 text-center font-sans text-black'>
