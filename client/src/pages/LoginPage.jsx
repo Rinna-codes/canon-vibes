@@ -7,7 +7,7 @@ import SpeechBubble from '../components/SpeechBubble.jsx';
 const navItems = [
     {Label: "Home", to: "/"},
     {Label: "Register", to: "/register"},
-    {Label: "About", to: "/"},
+    {Label: "About", to: "/"}, // TODO: Consider changing last navigation link to a more appropriate page, such as a contact page or FAQ page.
 ]
 
 const LoginPage = () => {
@@ -109,7 +109,6 @@ const LoginPage = () => {
                     </div>
 
                     {/* top right panel, navigation header*/}
-                    {/*TODO: Change the names to be less confusing (navLinks and navLinksHover)*/}
                     <div className={comicPanels.topRightPanel}>
                         {navItems.map((x) => (
                             <div key={x.Label} className={comicWording.navHoverLinks}>

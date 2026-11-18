@@ -4,6 +4,11 @@ import canonBurst from '../assets/canon-vibes-burst.svg';
 import SpeechBubble from '../components/SpeechBubble.jsx';
 import happyHerbie from '../assets/herbieHappy.svg';
 
+const navItems = [
+    {Label: "Home", to: "/"},
+    {Label: "Login", to: "/login"},
+    {Label: "About", to: "/"},
+]
 const RegisterPage = () => {
     // declare the form fields with useState and useNavigate
     // after a successful registration, send the user to the login page
@@ -25,7 +30,7 @@ const RegisterPage = () => {
         setError('');
         setSuccess('');
 
-        // check the passwords BEFORE contacting the server
+        // check if the passwords matchBEFORE contacting the server to create account
         if (password !== confirmPassword) {
             setError('Passwords do not match.');
             return;
@@ -70,6 +75,8 @@ const RegisterPage = () => {
 
     const comicWording = {
         appTitle: 'relative z-10 rotate-12 font-comic text-7xl text-white [-webkit-text-stroke:2px_black] text-shadow-[5px_5px_0_#000]',
+        navText: 'text-5xl font-comic text-white transition-colors group-hover:text-black group-focus-within:text-black after:absolute after:inset-0 after:content-[""]',
+        navHoverLinks: 'group relative transition duration-200 ease-out motion-safe:hover:transition-y-1 motion-safe:hover:scale-110 motion-safe:focus-within:scale-110 motion-safe:active:scale-95',
         registerHeader: 'mb-6 my-3 text-5xl font-comic text-black',
         Labels: 'mb-1 block font-sans font-bold text-base text-black',
         subText: 'mt-1 mb-8 font-sans text-base text-black/80',
@@ -97,17 +104,15 @@ const RegisterPage = () => {
                     {/* top right panel, navigation links */}
                     {/*TODO: Add hover effects/animation for the navigation speech bubbles*/}
                     <div className={comicPanels.topRightPanel}>
-                        <SpeechBubble>
-                            <Link to='' className={comicWording.navLinks}>Home</Link>
-                        </SpeechBubble>
-
-                        <SpeechBubble>
-                            <Link to='/login' className={comicWording.navLinks}>Login</Link>
-                        </SpeechBubble>
-
-                        <SpeechBubble>
-                            <Link to='' className={comicWording.navLinks}>About</Link>
-                        </SpeechBubble>
+                        {navItems.map((x) => (
+                            <div key={x.Label} className={comicWording.navHoverLinks}>
+                                <SpeechBubble>
+                                    <Link to={x.to} className={comicWording.navText}>
+                                        {x.Label}
+                                    </Link>
+                                </SpeechBubble>
+                            </div>
+                        ))}
                     </div>
 
                     {/* main left section, registration card form */}
